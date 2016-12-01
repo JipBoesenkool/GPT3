@@ -33,6 +33,6 @@ public class Swimming : MonoBehaviour {
 		//look towards new position
 		Vector3 lookPos = startPos - newPos;
 		float angle = Mathf.Atan2(lookPos.y, lookPos.x);
-		Debug.Log (angle);
+		//Debug.Log (angle);
 	}
 }
