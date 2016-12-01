@@ -1,0 +1,17 @@
+/Users/Jip/GPT/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/Jip/GPT/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/Jip/GPT/obj/Debug/Assembly-CSharp.dll
+/Users/Jip/GPT/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/Jip/GPT/Temp/bin/Debug/UnityEngine.dll
+/Users/Jip/GPT/Temp/bin/Debug/UnityEditor.dll
+/Users/Jip/GPT/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/Jip/GPT/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/Jip/GPT/Temp/bin/Debug/Mono.Cecil.dll
+/Users/Jip/GPT/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/Jip/GPT/Temp/bin/Debug/Unity.DataContract.dll
+/Users/Jip/GPT/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/Jip/GPT/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/Jip/GPT/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/Jip/GPT/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/Jip/GPT/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/Jip/GPT/Temp/bin/Debug/Mono.Cecil.Mdb.dll
