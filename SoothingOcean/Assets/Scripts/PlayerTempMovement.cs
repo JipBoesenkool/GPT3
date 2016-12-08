@@ -20,14 +20,13 @@ public class PlayerTempMovement : MonoBehaviour {
 
 		Vector3 rot = transform.rotation.eulerAngles;
 		rot.x += v * rotateSpeed;
-		rot.y += -h * rotateSpeed;
+		rot.y += h * rotateSpeed;
 
 		float angle = rot.x;
 		if( angle > 270f ){
 			angle -= 360f;
 		}
-
-		Debug.Log ("angle: " + angle.ToString());
+			
 		if( angle < -89f || angle > 89f ){
 			rot = transform.rotation.eulerAngles;
 		}
