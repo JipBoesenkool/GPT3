@@ -28,6 +28,8 @@ public class BoidFlocking : MonoBehaviour
 				{
 					rb.velocity = rb.velocity.normalized * controller.minVelocity;
 				}
+
+				transform.rotation = Quaternion.LookRotation(rb.velocity);
 			}
 			float waitTime = Random.Range(0.3f, 0.5f);
 			yield return new WaitForSeconds(waitTime);
