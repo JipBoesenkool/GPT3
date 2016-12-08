@@ -27,7 +27,6 @@ public class PlayerFishRecruitScript : MonoBehaviour
             {
                 if (!easyMode)
                 {
-                    Debug.Log("ayyyyy");
                     if (school.Count <= 0)
                     {
                         other.gameObject.transform.SetParent(GameObject.Find("School").transform);
