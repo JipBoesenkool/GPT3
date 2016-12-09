@@ -11,6 +11,7 @@ public class SpawnPoint : MonoBehaviour
 	public Transform spawnPoint;			// Punt waar enemies gespawned worden.
 	public float spawnTime = 3f;        	// Interval tussen spawns.
 	public bool randomSpawnTime = false;	// False gebruikt een vaste spawn tijd (zoals hierboven aangegeven), true gebruikt een random spawntijd tussen 0 en de aangegeven spawntijd.
+	public float maxScale = 1;				// Maakt de objecten die gespawned worden groter.
 	public GameObject[] enemies;          	// Array van enemies die gespawnd kunnen worden.
 
 	void Start ()
@@ -39,6 +40,7 @@ public class SpawnPoint : MonoBehaviour
 		// random nummer voor het kiezen welk spawnpunt gebruikt word.
 		int enemyIndex = Random.Range (0, enemies.Length);
 		// Maakt een instantie van de enemy prefab en plaatst het op een random spawnpoint.
-		Instantiate (enemies[enemyIndex], spawnPoint.position, spawnPoint.rotation);
+		GameObject spawnedobject = Instantiate (enemies[enemyIndex], spawnPoint.position, spawnPoint.rotation);
+		spawnedobject.transform.localScale = Vector3.one * Random.Range(1, maxScale);
 	}
 }
