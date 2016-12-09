@@ -29,7 +29,9 @@ public class StartSpawner : MonoBehaviour
 			float randomY = Random.Range (startY - maxRange, startY + maxRange);
 			float randomZ = Random.Range (startZ - maxRange, startZ + maxRange);
 			// Enemy spawnen.
-			Instantiate (enemies[spawnPointIndex], new Vector3(randomX,randomY,randomZ), new Quaternion(0,0,0,0));
+
+			var temp = Instantiate (enemies[spawnPointIndex], new Vector3(randomX,randomY,randomZ), new Quaternion(0,0,0,0));
+            temp.transform.SetParent(transform);
 		}
 	}
 }

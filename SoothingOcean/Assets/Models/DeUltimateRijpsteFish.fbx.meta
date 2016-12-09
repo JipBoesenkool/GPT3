@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: de727fd6aa440164b854cffc38832835
-timeCreated: 1481206860
+guid: 3d4f57c66f854dd49bee6d2b17e90344
+timeCreated: 1481281675
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: pasted__pCube2
-    100002: //RootNode
-    400000: pasted__pCube2
-    400002: //RootNode
-    2300000: pasted__pCube2
-    3300000: pasted__pCube2
-    4300000: pasted__pCube2
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pPyramid8
   materials:
     importMaterials: 1
     materialName: 0
