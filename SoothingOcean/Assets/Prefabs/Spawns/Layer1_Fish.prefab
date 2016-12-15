@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 65662020166370612}
   - component: {fileID: 114932632686877194}
   m_Layer: 0
-  m_Name: SimpleAI_Test
+  m_Name: Layer1_Fish
   m_TagString: FishTank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 100, z: 100}
+  m_Size: {x: 40, y: 40, z: 40}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114932632686877194
 MonoBehaviour:
@@ -137,7 +137,7 @@ MonoBehaviour:
   debugZetpil: {fileID: 1897635608783766}
   tankSize: {x: 0, y: 0, z: 0}
   fishPrefab: {fileID: 1714508621782770, guid: 9c66a4635b1ea46a2b554609b76f8f7f, type: 2}
-  numFish: 100
+  numFish: 2
   fishes: []
   goalPos: {x: 0, y: 0, z: 0}
 --- !u!135 &135735944232434322
