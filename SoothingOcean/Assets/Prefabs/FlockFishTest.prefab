@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33689270673617444}
   - component: {fileID: 23067291531226296}
   m_Layer: 0
-  m_Name: pasted__pCube2
+  m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3d3e54029d06b4d4a8fd20b0be835478, type: 2}
+  - {fileID: 2100000, guid: 9af2ca64a0e3a1040a2c3495afc1b56a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -171,6 +171,7 @@ MonoBehaviour:
   parent: {fileID: 0}
   manager: {fileID: 0}
   turning: 0
+  fleeing: 0
   rotationSpeed: 4
   speed: 0.5
   minSpeed: 5
@@ -178,6 +179,9 @@ MonoBehaviour:
   neighbourDistance: 10
   avoidDistance: 2
   newGoalPos: {x: 0, y: 0, z: 0}
+  fleeSpeedMod: 3
+  objToAvoid: {fileID: 0}
+  avoidFleeDist: 10
 --- !u!135 &135318497928558824
 SphereCollider:
   m_ObjectHideFlags: 1

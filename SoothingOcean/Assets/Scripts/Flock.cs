@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Flock : MonoBehaviour {
+	private Color32 _original;
+	private Color32 _red 		= new Color32(160,22,22, 128);
 
 	public GameObject parent;
 	public FlockManager manager;
 
 	public bool turning = false;
+	public bool fleeing = false;
 
 	public float rotationSpeed = 4f;
 
@@ -20,8 +23,14 @@ public class Flock : MonoBehaviour {
 
 	public Vector3 newGoalPos;
 
+	public float fleeSpeedMod;
+	public GameObject objToAvoid;
+	public float avoidFleeDist;
+
 	// Use this for initialization
 	void Start () {
+		_original = this.GetComponentInChildren<Renderer> ().material.color;
+
 		//random speed
 		speed = Random.Range (minSpeed, maxSpeed);
 
@@ -33,26 +42,50 @@ public class Flock : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		float swimSpeed = speed;
+		Vector3 direction = Vector3.zero;
+
 		if (turning) {
-			Vector3 direction = newGoalPos - transform.position;
-			transform.rotation = Quaternion.Slerp (
-				transform.rotation,
-				Quaternion.LookRotation (direction),
-				rotationSpeed * Time.deltaTime
-			);
 			speed = Random.Range (minSpeed, maxSpeed);
+			swimSpeed = speed;
+			direction = newGoalPos - transform.position;
+			Turn ( direction );
+		} else if( fleeing ){
+			//check if we still have to avoid the player
+			float dist = Vector3.Distance(transform.position, objToAvoid.transform.position);
+			if (dist > avoidFleeDist) {
+				this.GetComponentInChildren<Renderer> ().material.color = _original; 
+				fleeing = false;
+			}
+
+			//fleeDir
+			direction = transform.position - objToAvoid.transform.position;
+			swimSpeed *= fleeSpeedMod;
+			Turn ( direction );
 		} else {
 			if(Random.Range(0,10) < 1){
 				ApplyRules ();
 			}
 		}
 
-		transform.Translate (0,0, Time.deltaTime * speed);
+		transform.Translate (0,0, Time.deltaTime * swimSpeed);
+	}
+
+	private void Turn( Vector3 dir ){
+		transform.rotation = Quaternion.Slerp (
+			transform.rotation,
+			Quaternion.LookRotation (dir),
+			rotationSpeed * Time.deltaTime
+		);
 	}
 		
 	void OnTriggerEnter(Collider other){
 		if(other.tag == "FishTank"){
 			turning = false;
+		}
+
+		if(other.tag == "Player"){
+			Flee (other.gameObject);
 		}
 	}
 
@@ -62,6 +95,12 @@ public class Flock : MonoBehaviour {
 
 			turning = true;
 		}
+	}
+
+	public void Flee( GameObject objToAvoid ){
+		this.objToAvoid = objToAvoid;
+		this.GetComponentInChildren<Renderer> ().material.color = _red;
+		fleeing = true;
 	}
 
 	private void ApplyRules(){
