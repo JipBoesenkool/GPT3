@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FlockManager : MonoBehaviour {
+	private Color32 _original;
+	private Color32 _red 		= new Color32(160,22,22, 128);
 
-	public GameObject debugZetpil;
+	public GameObject debugPoint;
 	public Vector3 tankSize;
 
 	public GameObject fishPrefab;
@@ -30,7 +32,7 @@ public class FlockManager : MonoBehaviour {
 				pos,
 				Quaternion.identity
 			);
-			fishes [i].transform.parent = this.transform;
+			fishes[i].transform.parent = this.transform;
 		}
 
 		//goalPos
@@ -41,7 +43,10 @@ public class FlockManager : MonoBehaviour {
 	void Update () {
 		if(Random.Range(0,10000) < 50){
 			goalPos = randomPos ();
-			debugZetpil.transform.position = goalPos;
+
+			if(debugPoint != null){
+				debugPoint.transform.position = goalPos;
+			}
 		}
 	}
 
