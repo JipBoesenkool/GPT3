@@ -248,9 +248,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterLevel: 511
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  underwaterColor: {r: 0, g: 0.03230213, b: 0.6691177, a: 0}
-  fogDensity: 0.005
+  deepestWaterLevel: 100
+  normalFogColor: {r: 0.60294116, g: 0.60294116, b: 0.60294116, a: 0}
+  underwaterFogColor: {r: 0, g: 0.0202332, b: 0.41911763, a: 0}
+  fogDensityUnderwater: 0.01
+  fogDensityAbovewater: 0.001
 --- !u!114 &114730210325306628
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -497,11 +497,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114932632686877194, guid: fb6154d215f75407ea5b7d3df49463c1,
-        type: 2}
-      propertyPath: debugPoint
-      value: 
-      objectReference: {fileID: 1925604612}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
   m_IsPrefabParent: 0
@@ -593,7 +588,7 @@ GameObject:
   - component: {fileID: 1259601430}
   - component: {fileID: 1259601429}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Sunlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -754,11 +749,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1867518223}
   m_Script: {fileID: 11500000, guid: 366672aa95dea40cf9d49f2a50c65759, type: 3}
---- !u!1 &1925604612 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1897635608783766, guid: fb6154d215f75407ea5b7d3df49463c1,
-    type: 2}
-  m_PrefabInternal: {fileID: 333291992}
 --- !u!1001 &2046875022
 Prefab:
   m_ObjectHideFlags: 0
@@ -803,6 +793,51 @@ Prefab:
       propertyPath: bc
       value: 
       objectReference: {fileID: 1174247605}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: deepestWaterLevel
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: fogDensityUnderwater
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: fogDensityAbovewater
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: underwaterFogColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: underwaterFogColor.g
+      value: 0.0202332
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: underwaterFogColor.b
+      value: 0.41911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: normalFogColor.r
+      value: 0.60294116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: normalFogColor.g
+      value: 0.60294116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515222965567040, guid: 45b914a0c09aa4acda6ada730440e657,
+        type: 2}
+      propertyPath: normalFogColor.b
+      value: 0.60294116
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45b914a0c09aa4acda6ada730440e657, type: 2}
   m_IsPrefabParent: 0

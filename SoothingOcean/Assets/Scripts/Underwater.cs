@@ -17,7 +17,7 @@ public class Underwater : MonoBehaviour {
     private float fogDifference;
 
     private Light sunlight;
-    public GameObject sunlightObject;
+    private GameObject sunlightObject;
 
 
     // Use this for initialization

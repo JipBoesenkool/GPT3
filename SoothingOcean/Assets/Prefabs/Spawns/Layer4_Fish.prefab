@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 65662020166370612}
   - component: {fileID: 114932632686877194}
   m_Layer: 0
-  m_Name: Layer1_Fish 2
+  m_Name: Layer4_Fish
   m_TagString: FishTank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6056e19b8b2054e39817ab124fa2f836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugZetpil: {fileID: 1897635608783766}
+  debugPoint: {fileID: 0}
   tankSize: {x: 0, y: 0, z: 0}
   fishPrefab: {fileID: 1714508621782770, guid: 9c66a4635b1ea46a2b554609b76f8f7f, type: 2}
   numFish: 2
