@@ -15,7 +15,6 @@ public class FishScript : MonoBehaviour
     public Color color;
     public FishType type;
     public float size;
-    public bool inSchool;
 
     // Use this for initialization
     void Start()

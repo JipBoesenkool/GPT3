@@ -84,9 +84,11 @@ public class Flock : MonoBehaviour {
 			turning = false;
 		}
 
+		/*
 		if(other.tag == "Player"){
 			Flee (other.gameObject);
 		}
+		*/
 	}
 
 	void OnTriggerExit(Collider other){
@@ -103,9 +105,12 @@ public class Flock : MonoBehaviour {
 		fleeing = true;
 	}
 
+	public void RemoveFishFromManager(){
+		manager.RemoveFish (this.gameObject);
+	}
+
 	private void ApplyRules(){
-		GameObject[] gos;
-		gos = manager.fishes;
+		List<GameObject> gos = manager.fishes;
 
 		Vector3 vCentre = Vector3.zero;
 		Vector3 vAvoid 	= Vector3.zero;

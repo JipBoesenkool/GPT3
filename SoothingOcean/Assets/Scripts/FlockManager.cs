@@ -11,14 +11,14 @@ public class FlockManager : MonoBehaviour {
 
 	public GameObject fishPrefab;
 	public int numFish = 10;
-	public GameObject[] fishes;
+	public List<GameObject> fishes;
 
 	public Vector3 goalPos = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
 		//init fields
-		fishes  = new GameObject[numFish];
+		fishes = new List<GameObject>();
 
 		//get tanksize (bounding box)
 		tankSize = this.GetComponent<BoxCollider> ().size;
@@ -27,12 +27,14 @@ public class FlockManager : MonoBehaviour {
 		//spawn fishes
 		for(int i = 0; i < numFish; i++){
 			Vector3 pos = randomPos ();
-			fishes [i] = (GameObject)Instantiate (
+			GameObject fish = (GameObject)Instantiate (
 				fishPrefab,
 				pos,
 				Quaternion.identity
 			);
-			fishes[i].transform.parent = this.transform;
+			fish.transform.parent = this.transform;
+
+			fishes.Add (fish);
 		}
 
 		//goalPos
@@ -56,5 +58,9 @@ public class FlockManager : MonoBehaviour {
 			Random.Range(-tankSize.y, tankSize.y) + transform.position.y,
 			Random.Range(-tankSize.z, tankSize.z) + transform.position.z
 		);
+	}
+
+	public void RemoveFish( GameObject fish ){
+		fishes.Remove (fish);
 	}
 }

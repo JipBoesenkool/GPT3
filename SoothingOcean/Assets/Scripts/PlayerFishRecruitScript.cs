@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerFishRecruitScript : MonoBehaviour
 {
-    public List<GameObject> school;
-    public bool easyMode;
+	public BoidController bc;
 
     // Use this for initialization
     void Start()
     {
-        school = new List<GameObject>();
+		 
     }
 
     // Update is called once per frame
@@ -19,10 +18,24 @@ public class PlayerFishRecruitScript : MonoBehaviour
 
     }
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Fish"))
+		{
+			//TODO: need logic here when fish should be added or not
+			//if not call flock.Flee(player.gameobject)
+			bc.AddFish (
+				other.gameObject
+			);
+		}
+	}
+
+	/*
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fish"))
         {
+
             if (!other.GetComponent<FishScript>().inSchool)
             {
                 if (!easyMode)
@@ -62,6 +75,8 @@ public class PlayerFishRecruitScript : MonoBehaviour
                     other.GetComponent<Collider>().enabled = false;
                 }
             }
+
         }
     }
+*/
 }

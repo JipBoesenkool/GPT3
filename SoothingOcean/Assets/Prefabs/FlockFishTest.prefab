@@ -126,7 +126,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &64582443231888924
 MeshCollider:
@@ -156,7 +156,6 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   type: 0
   size: 1
-  inSchool: 0
 --- !u!114 &114748112516743138
 MonoBehaviour:
   m_ObjectHideFlags: 1

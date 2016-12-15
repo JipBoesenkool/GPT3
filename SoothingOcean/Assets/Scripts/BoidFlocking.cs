@@ -9,6 +9,7 @@ public class BoidFlocking : MonoBehaviour
 
 	IEnumerator Start()
 	{
+		controller = GameObject.Find ("Boid Controller").GetComponent<BoidController>();
 		rb = GetComponent<Rigidbody> ();
 
 		while (true)
