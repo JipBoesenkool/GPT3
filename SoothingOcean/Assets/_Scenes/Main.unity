@@ -37,7 +37,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+>>>>>>> origin/master
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -101,7 +105,6 @@ GameObject:
   - component: {fileID: 24}
   - component: {fileID: 21}
   - component: {fileID: 23}
-  - component: {fileID: 22}
   - component: {fileID: 20}
   - component: {fileID: 26}
   - component: {fileID: 25}
@@ -123,7 +126,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2
-  m_Center: {x: 0, y: 0, z: -0.73}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterLevel: 511
+<<<<<<< HEAD
   deepestWaterLevel: 100
   normalFogColor: {r: 0.61764705, g: 0.61764705, b: 0.61764705, a: 0}
   underwaterFogColor: {r: 0, g: 0.03230214, b: 0.3602941, a: 0}
@@ -155,6 +159,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   school: []
   easyMode: 0
+=======
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  underwaterColor: {r: 0, g: 0.03230213, b: 0.6691177, a: 0}
+  fogDensity: 0.005
+>>>>>>> origin/master
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 19}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 800, y: 480, z: 800}
+  m_LocalPosition: {x: 250, y: 150, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1065042433}
@@ -587,7 +596,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4465780719532678, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 60
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4465780719532678, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -613,6 +622,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114932632686877194, guid: fb6154d215f75407ea5b7d3df49463c1,
+        type: 2}
+      propertyPath: debugPoint
+      value: 
+      objectReference: {fileID: 1925604612}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
   m_IsPrefabParent: 0
@@ -665,6 +679,10 @@ Prefab:
       propertyPath: prefab
       value: 
       objectReference: {fileID: 1867518225}
+    - target: {fileID: 1940307839743162, guid: 828f0dce55e95449682889525fbcc565, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 828f0dce55e95449682889525fbcc565, type: 2}
   m_IsPrefabParent: 0
@@ -1052,6 +1070,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 369cd75cd2de5eb49850d609165cd361, type: 2}
+    - target: {fileID: 1502127107874898, guid: d4fcb8c5cadf744a6b80f440f8425acc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4fcb8c5cadf744a6b80f440f8425acc, type: 2}
   m_IsPrefabParent: 0
@@ -1061,6 +1083,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1867518223}
   m_Script: {fileID: 11500000, guid: 366672aa95dea40cf9d49f2a50c65759, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &1992616796
 Prefab:
   m_ObjectHideFlags: 0
@@ -1103,3 +1126,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a69c1f3a9b95b4f41badfb5660327717, type: 2}
   m_IsPrefabParent: 0
+=======
+--- !u!1 &1925604612 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1897635608783766, guid: fb6154d215f75407ea5b7d3df49463c1,
+    type: 2}
+  m_PrefabInternal: {fileID: 333291992}
+>>>>>>> origin/master
