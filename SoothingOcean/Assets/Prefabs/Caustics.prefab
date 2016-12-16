@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4802858772738910}
   - component: {fileID: 119061607527691966}
-  - component: {fileID: 114154487701576790}
+  - component: {fileID: 114152053350853686}
   m_Layer: 0
   m_Name: Caustics
   m_TagString: Untagged
@@ -35,13 +35,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096517596570464}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1000, y: 600, z: 1000}
+  m_LocalPosition: {x: 1000, y: 500, z: 1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &114154487701576790
+--- !u!114 &114152053350853686
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -49,10 +49,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1096517596570464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb614711796fbf428bcb81fafd072f0, type: 3}
+  m_Script: {fileID: 11500000, guid: a54620f00c4dfcd4684c2527bf9fec4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mt: {fileID: 15200000, guid: 02835ec84eccbea4493d68c8a7569845, type: 3}
+  maxDeviationX: 500
+  maxDeviationZ: 500
+  speedX: 10
+  speedZ: 20
 --- !u!119 &119061607527691966
 Projector:
   m_ObjectHideFlags: 1
@@ -66,7 +69,7 @@ Projector:
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 1
-  m_OrthographicSize: 1000
+  m_OrthographicSize: 1500
   m_Material: {fileID: 2100000, guid: 6bc9cab8ee0e51b4dba4215178ffca30, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2

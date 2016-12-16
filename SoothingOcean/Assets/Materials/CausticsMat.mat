@@ -54,7 +54,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: be741a534aee5764fad2bdcd386f2e2d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -78,8 +78,8 @@ Material:
     - first:
         name: _ShadowTex
       second:
-        m_Texture: {fileID: 15200000, guid: 02835ec84eccbea4493d68c8a7569845, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 5a3a7d9e91825d64da18ca1b90c1d3ce, type: 3}
+        m_Scale: {x: 1, y: 0}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
