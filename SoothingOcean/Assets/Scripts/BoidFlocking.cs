@@ -16,21 +16,26 @@ public class BoidFlocking : MonoBehaviour
 		{
 			if (controller)
 			{
-				
-				rb.velocity += steer() * Time.deltaTime;
+				Vector3 vel = steer() * Time.deltaTime;
 
-				// enforce minimum and maximum speeds for the boids
-				float speed = rb.velocity.magnitude;
-				if (speed > controller.maxVelocity)
+				if (!float.IsNaN(vel.x) && !float.IsNaN(vel.y) && !float.IsNaN(vel.z))
 				{
-					rb.velocity = rb.velocity.normalized * controller.maxVelocity;
-				}
-				else if (speed < controller.minVelocity)
-				{
-					rb.velocity = rb.velocity.normalized * controller.minVelocity;
-				}
+					rb.velocity += vel;
 
-				transform.rotation = Quaternion.LookRotation(rb.velocity);
+					// enforce minimum and maximum speeds for the boids
+					float speed = rb.velocity.magnitude;
+					if (speed > controller.maxVelocity)
+					{
+						rb.velocity = rb.velocity.normalized * controller.maxVelocity;
+					}
+					else if (speed < controller.minVelocity)
+					{
+						rb.velocity = rb.velocity.normalized * controller.minVelocity;
+					}
+
+					transform.rotation = Quaternion.LookRotation(rb.velocity);
+				}
+					
 			}
 			float waitTime = Random.Range(0.3f, 0.5f);
 			yield return new WaitForSeconds(waitTime);
