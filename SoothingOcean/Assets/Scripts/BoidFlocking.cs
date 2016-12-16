@@ -48,10 +48,37 @@ public class BoidFlocking : MonoBehaviour
 		randomize.Normalize();
 		randomize *= controller.randomness;
 
-		Vector3 center = controller.flockCenter - transform.localPosition;
-		Vector3 velocity = controller.flockVelocity - rb.velocity;
-		Vector3 follow = controller.target.localPosition - transform.localPosition;
+		Vector3 center 		= controller.flockCenter - transform.localPosition;
+		Vector3 velocity 	= controller.flockVelocity - rb.velocity;
+		Vector3 dir 		= controller.flockDir;
+		Vector3 bound 		= boundPosition ();
 
-		return (center + velocity + follow * 2 + randomize);
+		return (center + velocity + dir * 9000 + randomize);
+	}
+
+	private Vector3 boundPosition(){
+		Vector3 v = Vector3.zero;
+		Vector3 vCentre = controller.flockCenter;
+		float boundingR = controller.boundingBox.radius;
+
+		if(transform.position.x < vCentre.x - boundingR){
+			v.x = boundingR;
+		} else if(transform.position.x < vCentre.x + boundingR){
+			v.x = -boundingR;
+		}
+
+		if(transform.position.y < vCentre.y - boundingR){
+			v.y = boundingR;
+		} else if(transform.position.y < vCentre.y + boundingR){
+			v.y = -boundingR;
+		}
+
+		if(transform.position.z < vCentre.z - boundingR){
+			v.z = boundingR;
+		} else if(transform.position.z < vCentre.z + boundingR){
+			v.z = -boundingR;
+		}
+
+		return v;
 	}
 }
