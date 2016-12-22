@@ -39,8 +39,9 @@ GameObject:
   - component: {fileID: 135318497928558824}
   - component: {fileID: 54282389224085056}
   - component: {fileID: 114063040007534190}
-  - component: {fileID: 114748112516743138}
   - component: {fileID: 64582443231888924}
+  - component: {fileID: 114919082810098086}
+  - component: {fileID: 114132560428865392}
   m_Layer: 0
   m_Name: FlockFish
   m_TagString: Fish
@@ -67,8 +68,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714508621782770}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 250, y: 150, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4616632137620374}
@@ -156,7 +157,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   type: 0
   size: 1
---- !u!114 &114748112516743138
+--- !u!114 &114132560428865392
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -164,23 +165,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1714508621782770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4eadbf78dfa49ab9a6933ebc0a9270, type: 3}
+  m_Script: {fileID: 11500000, guid: c874e6b025c5c48ea90d28cf607bb99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  manager: {fileID: 0}
-  turning: 0
-  fleeing: 0
-  rotationSpeed: 4
-  speed: 0.5
-  minSpeed: 5
-  maxSpeed: 10
-  neighbourDistance: 10
-  avoidDistance: 2
-  newGoalPos: {x: 0, y: 0, z: 0}
-  fleeSpeedMod: 3
-  objToAvoid: {fileID: 0}
-  avoidFleeDist: 10
+  fishstickValue: 1
+--- !u!114 &114919082810098086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1714508621782770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366672aa95dea40cf9d49f2a50c65759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135318497928558824
 SphereCollider:
   m_ObjectHideFlags: 1
