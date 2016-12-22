@@ -83,12 +83,6 @@ public class Flock : MonoBehaviour {
 		if(other.tag == "FishTank"){
 			turning = false;
 		}
-
-		/*
-		if(other.tag == "Player"){
-			Flee (other.gameObject);
-		}
-		*/
 	}
 
 	void OnTriggerExit(Collider other){
