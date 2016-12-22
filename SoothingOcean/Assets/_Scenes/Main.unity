@@ -961,6 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221e377c148b19a4eac837dc1f0788db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fogOn: 0
   waterLevel: 511
   deepestWaterLevel: 100
   normalFogColor: {r: 0.60294116, g: 0.60294116, b: 0.60294116, a: 0}

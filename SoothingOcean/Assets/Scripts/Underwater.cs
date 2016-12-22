@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Underwater : MonoBehaviour {
 
+    public bool fogOn;
+
     public float waterLevel;
     public float deepestWaterLevel;
 
@@ -25,6 +27,7 @@ public class Underwater : MonoBehaviour {
         sunlightObject = GameObject.Find("Sunlight");
         sunlight = sunlightObject.GetComponent<Light>();
         fogDifference = Mathf.Abs(fogDensityUnderwater - 3*fogDensityAbovewater); //difference between 3* fogdensity above water and fogdensity in deepest water
+        RenderSettings.fog = fogOn;
     }
 
     // Update is called once per frame
