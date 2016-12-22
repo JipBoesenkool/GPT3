@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugPoint: {fileID: 1897635608783766}
   tankSize: {x: 0, y: 0, z: 0}
-  fishPrefab: {fileID: 1714508621782770, guid: 9c66a4635b1ea46a2b554609b76f8f7f, type: 2}
+  fishPrefab: {fileID: 1465889142874726, guid: b94de66a227e9634db08ed07c5d6291e, type: 2}
   numFish: 4
   fishes: []
   goalPos: {x: 0, y: 0, z: 0}
