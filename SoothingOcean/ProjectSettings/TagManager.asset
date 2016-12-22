@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fish
   - FishTank
+  - SeaGrass
   layers:
   - Default
   - TransparentFX
