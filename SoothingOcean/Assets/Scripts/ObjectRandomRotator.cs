@@ -11,7 +11,11 @@ public class ObjectRandomRotator : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
         objectsToRotate = GameObject.FindGameObjectsWithTag(tagToRotate);//Get all objects to rotate
+=======
+        objectsToRotate = GameObject.FindGameObjectsWithTag(tagToRotate);
+>>>>>>> origin/master
 
         foreach (GameObject objectToRotate in objectsToRotate)
         {

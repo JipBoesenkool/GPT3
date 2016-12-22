@@ -15,7 +15,11 @@ public class PlayerFishRecruitScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> origin/master
     }
 
     // Update is called once per frame
