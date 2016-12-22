@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -723,6 +723,53 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d46db59727250b41a6bfd0899f01b3c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &892576288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 892576290}
+  - component: {fileID: 892576289}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &892576289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 892576288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03dfed756a4a10b4d9e13242cb8b8643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 7
+  player: {fileID: 1467022851}
+  prefabs:
+  - {fileID: 1605826389831040, guid: f415778d4a2f5d14d84c8f88c5bf2b31, type: 2}
+  - {fileID: 1605826389831040, guid: 82b8c6263cb833149bb216252d7ed7ae, type: 2}
+  - {fileID: 1605826389831040, guid: 915a5cbf721bc484a8cf59aa1bdbd4fd, type: 2}
+  - {fileID: 1605826389831040, guid: 403b535e4d4343d4bab3c7eafbb5f701, type: 2}
+--- !u!4 &892576290
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 892576288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 473.35623, y: 262.71823, z: 965.23926}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &972276772
 Prefab:
   m_ObjectHideFlags: 0
