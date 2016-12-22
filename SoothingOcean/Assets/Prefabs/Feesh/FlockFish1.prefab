@@ -56,7 +56,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1237217204474016
 GameObject:
   m_ObjectHideFlags: 1
@@ -274,12 +274,12 @@ MeshCollider:
   m_GameObject: {fileID: 1465889142874726}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
   m_InflateMesh: 0
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b65f5d3a273348546808256ceb68ec77, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 69ba78cb96513ed499a2fdcda16e8983, type: 3}
 --- !u!64 &64585552830315068
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -288,9 +288,9 @@ MeshCollider:
   m_GameObject: {fileID: 1114589323541926}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b65f5d3a273348546808256ceb68ec77, type: 3}
@@ -302,13 +302,13 @@ Animation:
   m_GameObject: {fileID: 1465889142874726}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b65f5d3a273348546808256ceb68ec77, type: 3}
+  m_Animation: {fileID: 7400000, guid: 69ba78cb96513ed499a2fdcda16e8983, type: 3}
   m_Animations:
-  - {fileID: 7400000, guid: b65f5d3a273348546808256ceb68ec77, type: 3}
+  - {fileID: 7400000, guid: 69ba78cb96513ed499a2fdcda16e8983, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_CullingType: 1
 --- !u!114 &114071492466716660
 MonoBehaviour:
   m_ObjectHideFlags: 1
