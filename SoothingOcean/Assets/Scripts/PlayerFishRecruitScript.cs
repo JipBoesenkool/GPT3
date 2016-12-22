@@ -6,27 +6,58 @@ public class PlayerFishRecruitScript : MonoBehaviour
 {
 	public BoidController bc;
 
+    public float numberOfSizeNeededToCollectBigger;
+
+    public float numberOfSizeCollected = 0;
+    private float biggestFish;
+    public float joinSize = 1; //Smallest size able to recruit to school. 
+
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
+
+=======
 		
+>>>>>>> origin/master
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //if required number of collected fish is reached, allow collection of one size bigger.
+        if(numberOfSizeCollected >= numberOfSizeNeededToCollectBigger)
+        {
+            numberOfSizeCollected = 0; // reset number of collected.
+            joinSize++; 
+        }
     }
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Fish"))
 		{
-			//TODO: need logic here when fish should be added or not
-			//if not call flock.Flee(player.gameobject)
-			bc.AddFish (
-				other.gameObject
-			);
+            float fishSize = other.GetComponent<FishScript>().size; 
+
+            if (other.GetComponent<Flock>() != null)//If the other fish is still wild(Flock gets removed as it joins the school
+            {
+                if (!other.GetComponent<Flock>().fleeing) //If the fish is fleeing, can not be collected
+                {
+                    if (fishSize <= joinSize)
+                    {
+                        bc.AddFish(other.gameObject);
+                        //If current biggest collectable size, number of collected by 1
+                        if (fishSize == joinSize)
+                        {
+                            numberOfSizeCollected++;
+                        }
+                    }
+                    else
+                    {
+                        other.GetComponent<Flock>().Flee(this.gameObject); //Tell other fish to flee from this school
+                    }
+                }
+            }
 		}
 	}
 
