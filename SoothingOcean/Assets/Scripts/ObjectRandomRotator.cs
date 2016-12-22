@@ -11,13 +11,11 @@ public class ObjectRandomRotator : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        objectsToRotate = GameObject.FindGameObjectsWithTag(tagToRotate);
-
-        Debug.Log(objectsToRotate.Length);
+        objectsToRotate = GameObject.FindGameObjectsWithTag(tagToRotate);//Get all objects to rotate
 
         foreach (GameObject objectToRotate in objectsToRotate)
         {
-            objectToRotate.transform.Rotate(0f, Random.Range(0, 360), 0f);
+            objectToRotate.transform.Rotate(0f, Random.Range(0, 360), 0f);//give random rotation between 0 and 360 degrees on the y axis
         }
     }
 }
