@@ -13,8 +13,6 @@ public class ObjectRandomRotator : MonoBehaviour {
     {
         objectsToRotate = GameObject.FindGameObjectsWithTag(tagToRotate);
 
-        Debug.Log(objectsToRotate.Length);
-
         foreach (GameObject objectToRotate in objectsToRotate)
         {
             objectToRotate.transform.Rotate(0f, Random.Range(0, 360), 0f);

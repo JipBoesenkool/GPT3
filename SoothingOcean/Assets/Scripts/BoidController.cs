@@ -120,7 +120,14 @@ public class BoidController : MonoBehaviour
 	public int CountPoints(){
 		int total = 0;
 		foreach(GameObject gobj in school){
-			total += gobj.GetComponent<PointScript> ().fishstickValue;
+			PointScript ps = gobj.GetComponent<PointScript> ();
+			if(ps != null){
+				total += gobj.GetComponent<PointScript> ().fishstickValue;
+			}
+			else{
+				Debug.Log ("Missing pointscript");
+			}
+
 		}
 		return total;
 	}
