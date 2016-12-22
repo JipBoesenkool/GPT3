@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 65662020166370612}
   - component: {fileID: 114932632686877194}
   m_Layer: 0
-  m_Name: Layer3_Fish
+  m_Name: Layer1_spawn
   m_TagString: FishTank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605826389831040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 250, y: 60, z: 250}
+  m_LocalPosition: {x: 250, y: 150, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4113994570848252}
@@ -121,7 +121,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 40, z: 40}
+  m_Size: {x: 20, y: 20, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114932632686877194
 MonoBehaviour:
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6056e19b8b2054e39817ab124fa2f836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugPoint: {fileID: 0}
+  debugPoint: {fileID: 1897635608783766}
   tankSize: {x: 0, y: 0, z: 0}
   fishPrefab: {fileID: 1714508621782770, guid: 9c66a4635b1ea46a2b554609b76f8f7f, type: 2}
   numFish: 2
