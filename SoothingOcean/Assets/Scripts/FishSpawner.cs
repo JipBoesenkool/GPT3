@@ -3,18 +3,17 @@
 /// <summary>
 /// 1. Maak een empty game object en noem het SpawnManager.
 /// 2. Voeg het player object toe aan dit script.
-/// 3. Voeg iedere soort enemy toe die aan het begin van de game zichtbaar moet zijn.
+/// 3. Voeg de spawnable fish prefabs voor iedere layer toe aan het prefabs array.
 /// </summary>
 
 public class FishSpawner : MonoBehaviour
 {
-	
 	public float timer = 10;			// Tijd tussen iedere spawn.
-	public float maxRange = 75;			// Range tussen de speler en de maximale spawn afstand.
 	public GameObject player;			// Player object om de spawn posities te bepalen.
 	public GameObject[] prefabs;		// prefab voor iedere spawn layer.
 
 	private int layer = 1;				// Checkt in welke layer de speler zwemt.
+	private float maxRange = 30;		// Range tussen de speler en de maximale spawn afstand.
 
 	void Start ()
 	{
@@ -44,21 +43,35 @@ public class FishSpawner : MonoBehaviour
 			maxRange = 125;
 		}
 
-
 		// Random enemy soort uitkiezen.
 		int spawnPointIndex = Random.Range (0, layer -1);
-		// Positie bepalen.
+
+		// while loop variablen
+		int loop = 0;
+		Vector3 randomPos = new Vector3 (0,0,0);
+
+		// loopt totdat er een positie is gevonden dat niet achter de map zit.
+		while (loop < 15) {
+			randomPos = getRandomPosition (posX, posY, posZ,maxRange);
+			RaycastHit hit;
+			if (Physics.Raycast (player.transform.position, randomPos)) {
+				print ("recalculating");
+				loop++;
+			} else {
+				loop = 15;
+			}
+		}
+
+		// Enemy spawnen.
+		Instantiate (prefabs[spawnPointIndex], randomPos, new Quaternion(0,0,0,0));
+	}
+
+	Vector3 getRandomPosition(float posX, float posY, float posZ, float maxRange){
 		float randomX = Random.Range (posX - maxRange, posX + maxRange);
 		float randomY = Random.Range (posY - maxRange, posY + maxRange);
 		float randomZ = Random.Range (posZ - maxRange, posZ + maxRange);
-		if (randomY > 360) {
-			randomY = 360;
-		}
-		// Enemy spawnen.
-		Instantiate (prefabs[spawnPointIndex], new Vector3(randomX,randomY,randomZ), new Quaternion(0,0,0,0));
-		
+		Vector3 randomPos = new Vector3 (randomX,randomY,randomZ);
 
-
-
+		return randomPos;
 	}
 }

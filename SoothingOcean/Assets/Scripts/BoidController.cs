@@ -25,7 +25,9 @@ public class BoidController : MonoBehaviour
 	public float turnSpeed;
 	public float movementSpeed;
 
-	List<GameObject> school = new List<GameObject>();
+	public List<GameObject> school = new List<GameObject>();
+
+	public FishstickCountScript guiScript;
 
 	void Start()
 	{
@@ -48,10 +50,10 @@ public class BoidController : MonoBehaviour
 			debugFlockCenter.transform.position = flockCenter;
 		}
 
-		InputTemp ();
+		InputController ();
 	}
 		
-	private void InputTemp(){
+	private void InputController(){
 		var v = -Input.GetAxis("Vertical"); // use the same axis that move back/forth
 		var h = -Input.GetAxis("Horizontal"); // use the same axis that turns left/right
 
@@ -90,12 +92,16 @@ public class BoidController : MonoBehaviour
 	}
 
 	public void AddFish( GameObject fish ){
+
 		//set parent gameobject
 		fish.transform.parent = transform;
 		fish.GetComponent<Collider>().enabled = false;
 
 		//destroy flock AI
 		Flock fishFlock = fish.GetComponent<Flock>();
+		if(fishFlock == null){
+			return;
+		}
 		fishFlock.RemoveFishFromManager ();
 		Destroy (
 			fishFlock
@@ -105,5 +111,24 @@ public class BoidController : MonoBehaviour
 
 		//add to school
 		school.Add(fish);
+
+
+		//update points in gui
+		guiScript.UpdatePoints ( CountPoints() );
+	}
+
+	public int CountPoints(){
+		int total = 0;
+		foreach(GameObject gobj in school){
+			PointScript ps = gobj.GetComponent<PointScript> ();
+			if(ps != null){
+				total += gobj.GetComponent<PointScript> ().fishstickValue;
+			}
+			else{
+				Debug.Log ("Missing pointscript");
+			}
+
+		}
+		return total;
 	}
 }

@@ -33,7 +33,19 @@ public class FlockManager : MonoBehaviour {
 				Quaternion.identity
 			);
 			fish.transform.parent = this.transform;
-
+			//check the layer where the fish is spawned to determine it's size
+			float posY = fish.transform.position.y;
+			int maxScale = 1;
+			if(posY > 399){
+				maxScale = 1;
+			}else if(posY > 299){
+				maxScale = 2;
+			}else if(posY > 199){
+				maxScale = 3;
+			}else if(posY > 99){
+				maxScale = 4;
+			}
+			fish.transform.localScale = Vector3.one * Random.Range (1,maxScale);
 			fishes.Add (fish);
 		}
 
