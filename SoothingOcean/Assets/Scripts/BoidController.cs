@@ -57,7 +57,14 @@ public class BoidController : MonoBehaviour
 		var v = -Input.GetAxis("Vertical"); // use the same axis that move back/forth
 		var h = -Input.GetAxis("Horizontal"); // use the same axis that turns left/right
 
-		Vector3 rot = debugFlockCenter.transform.rotation.eulerAngles;
+        //Voor touch movement
+        if (Input.touchCount > 0)
+        {
+            v = Input.touches[0].deltaPosition.x;
+            h = Input.touches[0].deltaPosition.y;
+        }
+
+        Vector3 rot = debugFlockCenter.transform.rotation.eulerAngles;
 		rot.x += v * turnSpeed;
 		rot.y += -h * turnSpeed;
 
