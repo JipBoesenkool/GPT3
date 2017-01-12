@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     public Transform target;
     public float rotationSmoothing;
-    public float heightSmoothing;
     public int flocksize = 1;
     public int newFlock = 1;
     public int initialDistance = 20;
@@ -27,7 +26,7 @@ public class CameraController : MonoBehaviour {
         currentY = RotateAroundY();
         currentX = RotateAroundX();
 
-        Quaternion rotation  = Quaternion.Euler(target.eulerAngles.x, currentY, 0);
+        Quaternion rotation = Quaternion.Euler(target.eulerAngles.x, currentY, 0);
 
         if (flocksize !=  newFlock)
         {
@@ -37,27 +36,27 @@ public class CameraController : MonoBehaviour {
 
         //Debug.Log(rotation);
 
+        //from angle, find a position at distance BEHIND(that why -) target, look at target
         transform.position = target.position + (rotation * -distance);
-
-       transform.LookAt(target.transform);
+        transform.LookAt(target.transform);
     }
 
     float RotateAroundY()
     {
-        float desiredAngle = target.eulerAngles.y;
+        float wantedY = target.eulerAngles.y;
 
         //Damp the rotation
-        float angle = Mathf.LerpAngle(currentY, desiredAngle, Time.deltaTime * rotationSmoothing);
+        float angle = Mathf.LerpAngle(currentY, wantedY, Time.deltaTime * rotationSmoothing);
         //Debug.Log(angle);
         return angle;
     }
 
     float RotateAroundX()
     {
-        float wantedHeight = target.eulerAngles.x;
+        float wantedX = target.eulerAngles.x;
 
         // Damp the height rotation
-        float angle = Mathf.Lerp(currentX, wantedHeight, heightSmoothing * Time.deltaTime);
+        float angle = Mathf.Lerp(currentX, wantedX, rotationSmoothing * Time.deltaTime);
         //Debug.Log(angle);
         return angle;
     }
