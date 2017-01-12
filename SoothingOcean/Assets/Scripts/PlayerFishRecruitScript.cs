@@ -6,11 +6,11 @@ public class PlayerFishRecruitScript : MonoBehaviour
 {
 	public BoidController bc;
 
-    public float numberOfSizeNeededToCollectBigger;
+    //public float numberOfSizeNeededToCollectBigger;
 
-    public float numberOfSizeCollected = 0;
+    //public float numberOfSizeCollected = 0;
     private float biggestFish;
-    public float joinSize = 1; //Smallest size able to recruit to school. 
+    //public float joinSize = 1; //Smallest size able to recruit to school. 
 
     // Use this for initialization
     void Start()
@@ -22,11 +22,11 @@ public class PlayerFishRecruitScript : MonoBehaviour
     void Update()
     {
         //if required number of collected fish is reached, allow collection of one size bigger.
-        if(numberOfSizeCollected >= numberOfSizeNeededToCollectBigger)
-        {
-            numberOfSizeCollected = 0; // reset number of collected.
-            joinSize++; 
-        }
+        //if(numberOfSizeCollected >= numberOfSizeNeededToCollectBigger)
+        //{
+        //    numberOfSizeCollected = 0; // reset number of collected.
+        //    //joinSize++; 
+        //}
     }
 
 	void OnTriggerEnter(Collider other)
@@ -39,19 +39,27 @@ public class PlayerFishRecruitScript : MonoBehaviour
             {
                 if (!other.GetComponent<Flock>().fleeing) //If the fish is fleeing, can not be collected
                 {
-                    if (fishSize <= joinSize)
+                    if(bc.CountPoints() >= other.GetComponent<FishScript>().requiredPoints)
                     {
                         bc.AddFish(other.gameObject);
-                        //If current biggest collectable size, number of collected by 1
-                        if (fishSize == joinSize)
-                        {
-                            numberOfSizeCollected++;
-                        }
                     }
                     else
                     {
-                        other.GetComponent<Flock>().Flee(this.gameObject); //Tell other fish to flee from this school
+                        other.GetComponent<Flock>().fleeing = true;
                     }
+                    //if (fishSize <= joinSize)
+                    //{
+                    //    bc.AddFish(other.gameObject);
+                    //    //If current biggest collectable size, number of collected by 1
+                    //    if (fishSize == joinSize)
+                    //    {
+                    //        numberOfSizeCollected++;
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    other.GetComponent<Flock>().Flee(this.gameObject); //Tell other fish to flee from this school
+                    //}
                 }
             }
 		}
