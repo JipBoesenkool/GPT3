@@ -60,8 +60,8 @@ public class BoidController : MonoBehaviour
         //Voor touch movement
         if (Input.touchCount > 0)
         {
-            v = Input.touches[0].deltaPosition.x;
-            h = Input.touches[0].deltaPosition.y;
+            h = -Input.touches[0].deltaPosition.x * 0.10f;
+            v = -Input.touches[0].deltaPosition.y * 0.10f;
         }
 
         Vector3 rot = debugFlockCenter.transform.rotation.eulerAngles;
