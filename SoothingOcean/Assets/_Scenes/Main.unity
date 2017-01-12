@@ -666,6 +666,10 @@ Prefab:
       value: 
       objectReference: {fileID: 1465889142874726, guid: b94de66a227e9634db08ed07c5d6291e,
         type: 2}
+    - target: {fileID: 1605826389831040, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
   m_IsPrefabParent: 0
@@ -773,6 +777,11 @@ MonoBehaviour:
   - {fileID: 1605826389831040, guid: 82b8c6263cb833149bb216252d7ed7ae, type: 2}
   - {fileID: 1605826389831040, guid: 915a5cbf721bc484a8cf59aa1bdbd4fd, type: 2}
   - {fileID: 1605826389831040, guid: 403b535e4d4343d4bab3c7eafbb5f701, type: 2}
+  fishPrefab: {fileID: 1465889142874726, guid: b94de66a227e9634db08ed07c5d6291e, type: 2}
+  flockManPrefab: {fileID: 1605826389831040, guid: fb6154d215f75407ea5b7d3df49463c1,
+    type: 2}
+  flockManagersAmount: 10
+  maxRange: 60
 --- !u!4 &892576290
 Transform:
   m_ObjectHideFlags: 0
@@ -780,7 +789,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 892576288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 473.35623, y: 262.71823, z: 965.23926}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -824,6 +833,26 @@ Prefab:
     - target: {fileID: 4527003059770530, guid: 55074e33300277b428db170c09ef8379, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884689817252312, guid: 55074e33300277b428db170c09ef8379, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444143521697672, guid: 55074e33300277b428db170c09ef8379, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137441732025088, guid: 55074e33300277b428db170c09ef8379, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4906513078646708, guid: 55074e33300277b428db170c09ef8379, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403205162956842, guid: 55074e33300277b428db170c09ef8379, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55074e33300277b428db170c09ef8379, type: 2}
@@ -985,6 +1014,11 @@ Prefab:
       propertyPath: m_ClearFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 23392716076067600, guid: 2256c19a8b9e24c95b72e2820d2ee67f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2256c19a8b9e24c95b72e2820d2ee67f, type: 2}
   m_IsPrefabParent: 0
@@ -1125,7 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221e377c148b19a4eac837dc1f0788db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fogOn: 1
+  fogOn: 0
   waterLevel: 511
   deepestWaterLevel: 100
   normalFogColor: {r: 0.60294116, g: 0.60294116, b: 0.60294116, a: 0}
@@ -1141,15 +1175,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4543466005039748, guid: b94fb3bd4599e0548881653d5ab249aa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 247.56673
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4543466005039748, guid: b94fb3bd4599e0548881653d5ab249aa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 148.57071
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4543466005039748, guid: b94fb3bd4599e0548881653d5ab249aa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 247.45511
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4543466005039748, guid: b94fb3bd4599e0548881653d5ab249aa, type: 2}
       propertyPath: m_LocalRotation.x

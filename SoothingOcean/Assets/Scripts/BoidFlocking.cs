@@ -37,7 +37,7 @@ public class BoidFlocking : MonoBehaviour
 				}
 					
 			}
-			float waitTime = Random.Range(0.3f, 0.5f);
+			float waitTime = Random.Range(0.05f, 0.3f);
 			yield return new WaitForSeconds(waitTime);
 		}
 	}

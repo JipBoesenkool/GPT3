@@ -6,6 +6,7 @@ public class FlockManager : MonoBehaviour {
 	private Color32 _original;
 	private Color32 _red 		= new Color32(160,22,22, 128);
 
+	public FishSpawner fSpawner;
 	public GameObject debugPoint;
 	public Vector3 tankSize;
 
@@ -14,6 +15,7 @@ public class FlockManager : MonoBehaviour {
 	public List<GameObject> fishes;
 
 	public Vector3 goalPos = Vector3.zero;
+	public bool 	isActive = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,42 +26,64 @@ public class FlockManager : MonoBehaviour {
 		tankSize = this.GetComponent<BoxCollider> ().size;
 		tankSize /= 2;
 
+		//goalPos
+		goalPos = randomPos ();
+	}
+
+	public void Spawn( GameObject prefab, int nrFish, float size, int points, Vector3 spawnerPos ){
+		//init variables
+		fishPrefab = prefab;
+		numFish = nrFish;
+		this.transform.position = spawnerPos;
+
 		//spawn fishes
 		for(int i = 0; i < numFish; i++){
-			Vector3 pos = randomPos ();
+			Vector3 fishPos = randomPos ();
 			GameObject fish = (GameObject)Instantiate (
 				fishPrefab,
-				pos,
+				fishPos,
 				Quaternion.identity
 			);
+
 			fish.transform.parent = this.transform;
-			//check the layer where the fish is spawned to determine it's size
-			float posY = fish.transform.position.y;
-			int maxScale = 1;
-			if(posY > 399){
-				maxScale = 1;
-			}else if(posY > 299){
-				maxScale = 2;
-			}else if(posY > 199){
-				maxScale = 3;
-			}else if(posY > 99){
-				maxScale = 4;
+
+			//set scale
+			fish.transform.localScale *= size;
+
+			//set points of the fish
+			PointScript ps = fish.GetComponent<PointScript>();
+			if (ps == null) {
+				Debug.Log ("Fish prefab does not have a point script");
+				return;
+			} else {
+				ps.fishstickValue = points;
 			}
-			fish.transform.localScale = Vector3.one * Random.Range (1,maxScale);
+
+			//add to list
 			fishes.Add (fish);
 		}
 
-		//goalPos
-		goalPos = randomPos ();
+		isActive = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Random.Range(0,10000) < 50){
-			goalPos = randomPos ();
+		if(isActive){
+			//check if it should be active
+			Debug.Log (Vector3.Distance(fSpawner.player.transform.position, transform.position).ToString());
+			if(Vector3.Distance(fSpawner.player.transform.position, transform.position) > fSpawner.maxRange){
 
-			if(debugPoint != null){
-				debugPoint.transform.position = goalPos;
+				Deactivate ();
+				return;
+			}
+
+			//change goal position 
+			if(Random.Range(0,10000) < 50){
+				goalPos = randomPos ();
+
+				if(debugPoint != null){
+					debugPoint.transform.position = goalPos;
+				}
 			}
 		}
 	}
@@ -70,6 +94,17 @@ public class FlockManager : MonoBehaviour {
 			Random.Range(-tankSize.y, tankSize.y) + transform.position.y,
 			Random.Range(-tankSize.z, tankSize.z) + transform.position.z
 		);
+	}
+
+	private void Deactivate(){
+		//Clean up old fishes
+		isActive = false;
+		for(int i = 0; i < fishes.Count; i++){
+			Destroy(fishes[i]);
+		}
+		fishes.Clear();
+
+		fSpawner.Spawn (this);
 	}
 
 	public void RemoveFish( GameObject fish ){
