@@ -35,17 +35,17 @@ public class FlockManager : MonoBehaviour {
 			fish.transform.parent = this.transform;
 			//check the layer where the fish is spawned to determine it's size
 			float posY = fish.transform.position.y;
-			int maxScale = 1;
+			float maxScale = 1;
 			if(posY > 399){
-				maxScale = 1;
+				maxScale = 0.3f;
 			}else if(posY > 299){
-				maxScale = 2;
+				maxScale = 0.6f;
 			}else if(posY > 199){
-				maxScale = 3;
+				maxScale = 0.9f;
 			}else if(posY > 99){
-				maxScale = 4;
+				maxScale = 1.2f;
 			}
-			fish.transform.localScale = Vector3.one * Random.Range (1,maxScale);
+			fish.transform.localScale = Vector3.one * Random.Range (maxScale-0.3f,maxScale);
 			fishes.Add (fish);
 		}
 
