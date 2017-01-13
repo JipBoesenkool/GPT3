@@ -627,6 +627,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114932632686877194, guid: fb6154d215f75407ea5b7d3df49463c1,
+        type: 2}
+      propertyPath: colors.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4465780719532678, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 250
@@ -668,6 +673,21 @@ Prefab:
     - target: {fileID: 1605826389831040, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114932632686877194, guid: fb6154d215f75407ea5b7d3df49463c1,
+        type: 2}
+      propertyPath: colors.Array.data[0].r
+      value: 0.78676474
+      objectReference: {fileID: 0}
+    - target: {fileID: 114932632686877194, guid: fb6154d215f75407ea5b7d3df49463c1,
+        type: 2}
+      propertyPath: colors.Array.data[0].g
+      value: 0.121485755
+      objectReference: {fileID: 0}
+    - target: {fileID: 114932632686877194, guid: fb6154d215f75407ea5b7d3df49463c1,
+        type: 2}
+      propertyPath: colors.Array.data[0].b
+      value: 0.121485755
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb6154d215f75407ea5b7d3df49463c1, type: 2}
@@ -928,6 +948,8 @@ MonoBehaviour:
       type: 2}
     minRange: 60
     maxRange: 120
+    colors:
+    - {r: 0.19999981, g: 0, b: 1, a: 0}
   - layer: 2
     fishAmount: 10
     pointsPerFish: 2
@@ -936,6 +958,8 @@ MonoBehaviour:
       type: 2}
     minRange: 60
     maxRange: 180
+    colors:
+    - {r: 0, g: 0, b: 0, a: 0}
   - layer: 3
     fishAmount: 5
     pointsPerFish: 3
@@ -944,6 +968,8 @@ MonoBehaviour:
       type: 2}
     minRange: 60
     maxRange: 240
+    colors:
+    - {r: 0.9862069, g: 1, b: 0, a: 0}
   - layer: 4
     fishAmount: 5
     pointsPerFish: 5
@@ -952,6 +978,8 @@ MonoBehaviour:
       type: 2}
     minRange: 60
     maxRange: 240
+    colors:
+    - {r: 1, g: 0, b: 0.6000004, a: 0}
   flockManagersAmount: 10
 --- !u!4 &892576290
 Transform:

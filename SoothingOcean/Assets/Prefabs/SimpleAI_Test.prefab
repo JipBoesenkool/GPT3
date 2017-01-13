@@ -134,12 +134,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6056e19b8b2054e39817ab124fa2f836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fSpawner: {fileID: 0}
+  demoSpawnData:
+    layer: 0
+    fishAmount: 0
+    pointsPerFish: 0
+    fishSize: 0
+    fishPrefab: {fileID: 0}
+    minRange: 0
+    maxRange: 0
+    colors: []
+  demo: 0
   debugPoint: {fileID: 1897635608783766}
   tankSize: {x: 0, y: 0, z: 0}
-  fishPrefab: {fileID: 1714508621782770, guid: 9c66a4635b1ea46a2b554609b76f8f7f, type: 2}
-  numFish: 10
   fishes: []
   goalPos: {x: 0, y: 0, z: 0}
+  isActive: 0
 --- !u!135 &135735944232434322
 SphereCollider:
   m_ObjectHideFlags: 1

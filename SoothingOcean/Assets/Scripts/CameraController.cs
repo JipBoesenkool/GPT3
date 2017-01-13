@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour {
         //Damped the transition if distance is changed
         distance =  Mathf.Lerp(distanceVector.z, distance, zoomSmoothing * Time.deltaTime);
 
-        Debug.Log(distance);
+        //Debug.Log(distance);
 
         return distance;
     }

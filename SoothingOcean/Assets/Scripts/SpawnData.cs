@@ -17,4 +17,6 @@ public class SpawnData {
 	public int minRange;
 	[Range(0,240)]
 	public int maxRange;
+
+    public Color[] colors;
 }

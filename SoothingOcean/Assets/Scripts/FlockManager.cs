@@ -54,8 +54,11 @@ public class FlockManager : MonoBehaviour {
 			//set scale
 			fish.transform.localScale *= sd.fishSize;
 
-			//set points of the fish
-			PointScript ps = fish.GetComponent<PointScript>();
+            //set random color from colors
+            fish.GetComponentInChildren<Renderer>().material.color = sd.colors[Random.Range(0, sd.colors.Length)];
+
+            //set points of the fish
+            PointScript ps = fish.GetComponent<PointScript>();
 			if (ps == null) {
 				Debug.Log ("Fish prefab does not have a point script");
 				return;
