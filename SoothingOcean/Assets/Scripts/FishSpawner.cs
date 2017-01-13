@@ -25,6 +25,8 @@ public class FishSpawner : MonoBehaviour
 				Vector3.zero,
 				Quaternion.identity
 			).GetComponent<FlockManager>();
+			fm.transform.SetParent(this.transform);
+
 			fm.fSpawner = this;
 
 			Spawn (fm);
