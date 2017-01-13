@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 95f246151ca8b594fa373f88d1d666a9
+timeCreated: 1484222569
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sweet Sensations Personal Use
+  fontNames:
+  - Sweet Sensations Personal Use
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

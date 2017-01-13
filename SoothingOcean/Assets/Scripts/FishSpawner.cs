@@ -8,70 +8,81 @@
 
 public class FishSpawner : MonoBehaviour
 {
-	public float timer = 10;			// Tijd tussen iedere spawn.
 	public GameObject player;			// Player object om de spawn posities te bepalen.
-	public GameObject[] prefabs;		// prefab voor iedere spawn layer.
+	public int spawnDataIndex;
 
-	private int layer = 1;				// Checkt in welke layer de speler zwemt.
-	private float maxRange = 30;		// Range tussen de speler en de maximale spawn afstand.
+	//flockmanager object pool
+	public GameObject flockManPrefab;
+	public SpawnData[] spawnData;		// spawn data voor iedere spawn layer.
+	public int flockManagersAmount;
 
 	void Start ()
 	{
-		InvokeRepeating ("Spawn", timer, timer);
+		//init the fish tanks
+		for(int i = 0; i < flockManagersAmount; i++){
+			FlockManager fm = Instantiate (
+				flockManPrefab,
+				Vector3.zero,
+				Quaternion.identity
+			).GetComponent<FlockManager>();
+			fm.transform.SetParent(this.transform);
+
+			fm.fSpawner = this;
+
+			Spawn (fm);
+		}
+
 	}
 
 	// Spawned de betreffende objecten.
-	void Spawn ()
+	public void Spawn (FlockManager fm)
 	{
 		// Positie van de speler binnen halen..
-		float posX = player.transform.position.x;
-		float posY = player.transform.position.y;
-		float posZ = player.transform.position.z;
+		Vector3 playerPos = player.transform.position;
 
 		//check in welke layer de speler zwemt.
-		if(posY > 399){
-			layer = 1;
-			maxRange = 30;
-		}else if(posY > 299){
-			layer = 2;
-			maxRange = 60;
-		}else if(posY > 199){
-			layer = 3;
-			maxRange = 100;
-		}else if(posY > 99){
-			layer = 4;
-			maxRange = 125;
+		if(playerPos.y > 399){
+			spawnDataIndex = 0;
+
+		}else if(playerPos.y > 299){
+			spawnDataIndex = 1;
+
+		}else if(playerPos.y > 199){
+			spawnDataIndex = 2;
+
+		}else if(playerPos.y > 99){
+			spawnDataIndex = 3;
 		}
 
-		// Random enemy soort uitkiezen.
-		int spawnPointIndex = Random.Range (0, layer -1);
+		// Get random position
+		Vector3 randomPos = GetRandomPositionInRange(
+			playerPos, 
+			spawnData[spawnDataIndex].minRange, 
+			spawnData[spawnDataIndex].maxRange
+		);
 
-		// while loop variablen
-		int loop = 0;
-		Vector3 randomPos = new Vector3 (0,0,0);
-
-		// loopt totdat er een positie is gevonden dat niet achter de map zit.
-		while (loop < 15) {
-			randomPos = getRandomPosition (posX, posY, posZ,maxRange);
-			RaycastHit hit;
-			if (Physics.Raycast (player.transform.position, randomPos)) {
-				print ("recalculating");
-				loop++;
-			} else {
-				loop = 15;
-			}
+		//get Y height
+		RaycastHit hit;
+		Ray ray = new Ray(new Vector3(randomPos.x,499f,randomPos.z), Vector3.down);
+		if (Physics.Raycast(ray, out hit, 500f)) {
+			randomPos.y = hit.point.y + 20f;
 		}
 
-		// Enemy spawnen.
-		Instantiate (prefabs[spawnPointIndex], randomPos, new Quaternion(0,0,0,0));
+		// set fish tank.
+		fm.Spawn(
+			spawnData[spawnDataIndex],
+			randomPos
+		);
 	}
 
-	Vector3 getRandomPosition(float posX, float posY, float posZ, float maxRange){
-		float randomX = Random.Range (posX - maxRange, posX + maxRange);
-		float randomY = Random.Range (posY - maxRange, posY + maxRange);
-		float randomZ = Random.Range (posZ - maxRange, posZ + maxRange);
-		Vector3 randomPos = new Vector3 (randomX,randomY,randomZ);
+	Vector3 GetRandomPositionInRange(Vector3 playerPos ,float minRange, float maxRange){
+		float magnitude = maxRange - minRange;
+		Vector3 minDistance = new Vector3 (minRange,minRange,minRange);
+		Vector3 randomPos = (Random.insideUnitSphere * magnitude) + minDistance;
+		return (randomPos + playerPos);
+	}
 
-		return randomPos;
+	public int GetMaxRange(){
+		return spawnData [spawnDataIndex].maxRange;
 	}
 }

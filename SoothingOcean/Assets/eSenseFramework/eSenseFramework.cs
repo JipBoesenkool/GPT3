@@ -149,7 +149,7 @@ namespace eSense
                 if(spikeTimes.Count >= 8)
                 {
                     spikeTimes.Clear();
-                    OnPossibleDisconnectDetected();
+                    //OnPossibleDisconnectDetected();
                 }
             }
         }

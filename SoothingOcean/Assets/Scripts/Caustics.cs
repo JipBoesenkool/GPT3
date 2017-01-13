@@ -4,22 +4,46 @@ using UnityEngine;
 
 public class Caustics : MonoBehaviour {
 
-#if UNITY_ANDROID
-#elif UNITY_IOS
-#else
-    private Projector projector;
-    public MovieTexture mt;
+    public float maxDeviationX;
+    public float maxDeviationZ;
 
-#endif
+    public float speedX;
+    public float speedZ;
+
+    private float startX;
+    private float startZ;
+
+    private bool goingUpX = false;
+    private bool goingUpZ = false;
+
+
     void Start()
     {
-#if UNITY_ANDROID
-#elif UNITY_IOS
-#else
-        projector = GetComponent<Projector>();
-        projector.material.SetTexture("_ShadowTex", mt);
-        mt.loop = true;
-        mt.Play();
-#endif
+        startX = transform.position.x;
+        startZ = transform.position.z;
+    }
+
+    void Update()
+    {
+        if (goingUpX)
+        {
+            transform.Translate(Time.deltaTime * speedX, 0f, 0f);
+            if (transform.position.x > startX + maxDeviationX) goingUpX = false;
+        }
+        else
+        {
+            transform.Translate(Time.deltaTime * -speedX, 0f, 0f);
+            if (transform.position.x < startX - maxDeviationX) goingUpX = true;
+        }
+        if (goingUpZ)
+        {
+            transform.Translate(0f, Time.deltaTime * speedZ , 0f);
+            if (transform.position.z > startZ + maxDeviationZ) goingUpZ = false;
+        }
+        else
+        {
+            transform.Translate(0f, Time.deltaTime * -speedZ, 0f);
+            if (transform.position.z < startZ - maxDeviationZ) goingUpZ = true;
+        }
     }
 }

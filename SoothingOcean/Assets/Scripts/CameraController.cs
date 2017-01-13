@@ -5,60 +5,69 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     public Transform target;
     public float rotationSmoothing;
-    public float heightSmoothing;
-    public int flocksize = 1;
-    public int newFlock = 1;
-    public int initialDistance = 20;
+    public float zoomSmoothing;
+    public float zoomPerFish;
+
+    public int initialDistance;
+    Vector3 distanceVector;
+
+    public BoidController bc;
 
     private float currentX;
-    private float currentY;
+    private float currentY; 
 
-
-    Vector3 distance;
-    Vector3 increment;
 	// Use this for initialization
 	void Start () {
-        distance = new Vector3(0, 0, initialDistance);
-        Debug.Log(distance);
+        //Debug.Log(distance);
     }
 	
 	// Update is called once per frame
 	void LateUpdate () {
         currentY = RotateAroundY();
         currentX = RotateAroundX();
+        Quaternion rotation = Quaternion.Euler(target.eulerAngles.x, currentY, 0);
 
-        Quaternion rotation  = Quaternion.Euler(target.eulerAngles.x, currentY, 0);
+        //get current view distance
+        distanceVector = new Vector3(0, 0, CalculateViewDistance());
 
-        if (flocksize !=  newFlock)
-        {
-            distance = distance + new Vector3(0, 0, 3);
-            flocksize = newFlock;
-        }
-
-        //Debug.Log(rotation);
-
-        transform.position = target.position + (rotation * -distance);
-
-       transform.LookAt(target.transform);
+        //from angle, find a position at distance BEHIND(that why -) target, look at target
+        transform.position = target.position + (rotation * -distanceVector);
+        transform.LookAt(target.transform);
     }
 
     float RotateAroundY()
     {
-        float desiredAngle = target.eulerAngles.y;
+        float wantedY = target.eulerAngles.y;
 
         //Damp the rotation
-        float angle = Mathf.LerpAngle(currentY, desiredAngle, Time.deltaTime * rotationSmoothing);
+        float angle = Mathf.LerpAngle(currentY, wantedY, Time.deltaTime * rotationSmoothing);
         //Debug.Log(angle);
         return angle;
     }
 
     float RotateAroundX()
     {
-        float wantedHeight = target.eulerAngles.x;
+        float wantedX = target.eulerAngles.x;
 
         // Damp the height rotation
-        float angle = Mathf.Lerp(currentX, wantedHeight, heightSmoothing * Time.deltaTime);
+        float angle = Mathf.Lerp(currentX, wantedX, rotationSmoothing * Time.deltaTime);
         //Debug.Log(angle);
         return angle;
+    }
+
+    float CalculateViewDistance()
+    {
+        //Calculate distance wanted
+        float distance;
+        distance = initialDistance + zoomPerFish * bc.school.Count;
+
+        //Debug.Log(distance);
+
+        //Damped the transition if distance is changed
+        distance =  Mathf.Lerp(distanceVector.z, distance, zoomSmoothing * Time.deltaTime);
+
+        //Debug.Log(distance);
+
+        return distance;
     }
 }
