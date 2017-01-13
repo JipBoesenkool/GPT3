@@ -8,18 +8,13 @@
 
 public class FishSpawner : MonoBehaviour
 {
-	public float timer = 5;			// Tijd tussen iedere spawn.
-	public GameObject player;		// Player object om de spawn posities te bepalen.
-	public GameObject[] prefabs;	// prefab voor iedere spawn layer.
-	public GameObject fishPrefab;
+	public GameObject player;			// Player object om de spawn posities te bepalen.
+	public int spawnDataIndex;
 
 	//flockmanager object pool
 	public GameObject flockManPrefab;
+	public SpawnData[] spawnData;		// spawn data voor iedere spawn layer.
 	public int flockManagersAmount;
-
-	private int layer = 1;				// Checkt in welke layer de speler zwemt.
-	public float minRange = 30;			// Fog field of view
-	public float maxRange = 120;		// Range tussen de speler en de maximale spawn afstand.
 
 	void Start ()
 	{
@@ -43,42 +38,26 @@ public class FishSpawner : MonoBehaviour
 		// Positie van de speler binnen halen..
 		Vector3 playerPos = player.transform.position;
 
-		int amount;
-		int points;
-		float size;
-
 		//check in welke layer de speler zwemt.
 		if(playerPos.y > 399){
-			layer = 1;
-
-			amount 	= 10;
-			points 	= 1;
-			size 	= 1f;
+			spawnDataIndex = 0;
 
 		}else if(playerPos.y > 299){
-			layer = 2;
-
-			amount 	= 10;
-			points 	= 2;
-			size 	= 1.5f;
+			spawnDataIndex = 1;
 
 		}else if(playerPos.y > 199){
-			layer = 3;
-
-			amount 	= 5;
-			points 	= 3;
-			size 	= 2f;
+			spawnDataIndex = 2;
 
 		}else if(playerPos.y > 99){
-			layer = 4;
-
-			amount 	= 5;
-			points 	= 5;
-			size 	= 2f;
+			spawnDataIndex = 3;
 		}
 
 		// Get random position
-		Vector3 randomPos = GetRandomPositionInRange(playerPos, minRange, maxRange);
+		Vector3 randomPos = GetRandomPositionInRange(
+			playerPos, 
+			spawnData[spawnDataIndex].minRange, 
+			spawnData[spawnDataIndex].maxRange
+		);
 
 		//get Y height
 		RaycastHit hit;
@@ -88,7 +67,10 @@ public class FishSpawner : MonoBehaviour
 		}
 
 		// set fish tank.
-		fm.Spawn(fishPrefab, amount, size, points, randomPos);
+		fm.Spawn(
+			spawnData[spawnDataIndex],
+			randomPos
+		);
 	}
 
 	Vector3 GetRandomPositionInRange(Vector3 playerPos ,float minRange, float maxRange){
@@ -96,5 +78,9 @@ public class FishSpawner : MonoBehaviour
 		Vector3 minDistance = new Vector3 (minRange,minRange,minRange);
 		Vector3 randomPos = (Random.insideUnitSphere * magnitude) + minDistance;
 		return (randomPos + playerPos);
+	}
+
+	public int GetMaxRange(){
+		return spawnData [spawnDataIndex].maxRange;
 	}
 }

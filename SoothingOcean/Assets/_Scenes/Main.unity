@@ -772,14 +772,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 7
   player: {fileID: 1801201700}
-  prefabs:
-  - {fileID: 1605826389831040, guid: f415778d4a2f5d14d84c8f88c5bf2b31, type: 2}
-  - {fileID: 1605826389831040, guid: 82b8c6263cb833149bb216252d7ed7ae, type: 2}
-  - {fileID: 1605826389831040, guid: 915a5cbf721bc484a8cf59aa1bdbd4fd, type: 2}
-  - {fileID: 1605826389831040, guid: 403b535e4d4343d4bab3c7eafbb5f701, type: 2}
-  fishPrefab: {fileID: 1465889142874726, guid: b94de66a227e9634db08ed07c5d6291e, type: 2}
   flockManPrefab: {fileID: 1605826389831040, guid: fb6154d215f75407ea5b7d3df49463c1,
     type: 2}
+  spawnData:
+  - layer: 1
+    fishAmount: 10
+    pointsPerFish: 1
+    fishSize: 1
+    fishPrefab: {fileID: 0}
+    minRange: 60
+    maxRange: 120
+  - layer: 2
+    fishAmount: 10
+    pointsPerFish: 2
+    fishSize: 1.5
+    fishPrefab: {fileID: 0}
+    minRange: 60
+    maxRange: 180
+  - layer: 3
+    fishAmount: 5
+    pointsPerFish: 3
+    fishSize: 2
+    fishPrefab: {fileID: 0}
+    minRange: 60
+    maxRange: 240
+  - layer: 4
+    fishAmount: 5
+    pointsPerFish: 5
+    fishSize: 2.5
+    fishPrefab: {fileID: 0}
+    minRange: 60
+    maxRange: 240
   flockManagersAmount: 10
   minRange: 60
   maxRange: 240

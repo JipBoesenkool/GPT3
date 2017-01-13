@@ -10,8 +10,6 @@ public class FlockManager : MonoBehaviour {
 	public GameObject debugPoint;
 	public Vector3 tankSize;
 
-	public GameObject fishPrefab;
-	public int numFish = 10;
 	public List<GameObject> fishes;
 
 	public Vector3 goalPos = Vector3.zero;
@@ -30,17 +28,15 @@ public class FlockManager : MonoBehaviour {
 		goalPos = randomPos ();
 	}
 
-	public void Spawn( GameObject prefab, int nrFish, float size, int points, Vector3 spawnerPos ){
+	public void Spawn( SpawnData sd, Vector3 spawnerPos ){
 		//init variables
-		fishPrefab = prefab;
-		numFish = nrFish;
 		this.transform.position = spawnerPos;
 
 		//spawn fishes
-		for(int i = 0; i < numFish; i++){
+		for(int i = 0; i < sd.fishAmount; i++){
 			Vector3 fishPos = randomPos ();
 			GameObject fish = (GameObject)Instantiate (
-				fishPrefab,
+				sd.fishPrefab,
 				fishPos,
 				Quaternion.identity
 			);
@@ -48,7 +44,7 @@ public class FlockManager : MonoBehaviour {
 			fish.transform.parent = this.transform;
 
 			//set scale
-			fish.transform.localScale *= size;
+			fish.transform.localScale *= sd.fishSize;
 
 			//set points of the fish
 			PointScript ps = fish.GetComponent<PointScript>();
@@ -56,7 +52,7 @@ public class FlockManager : MonoBehaviour {
 				Debug.Log ("Fish prefab does not have a point script");
 				return;
 			} else {
-				ps.fishstickValue = points;
+				ps.fishstickValue = sd.pointsPerFish;
 			}
 
 			//add to list
@@ -70,7 +66,7 @@ public class FlockManager : MonoBehaviour {
 	void Update () {
 		if(isActive){
 			//check if it should be active
-			if(Vector3.Distance(fSpawner.player.transform.position, transform.position) > fSpawner.maxRange){
+			if(Vector3.Distance(fSpawner.player.transform.position, transform.position) > fSpawner.GetMaxRange()){
 				Deactivate ();
 				return;
 			}
