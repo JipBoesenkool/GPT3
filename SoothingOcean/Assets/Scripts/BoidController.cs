@@ -65,7 +65,7 @@ public class BoidController : MonoBehaviour
         }
 
         Vector3 rot = debugFlockCenter.transform.rotation.eulerAngles;
-		rot.x += v * turnSpeed;
+		rot.x += v * turnSpeed/3;
 		rot.y += -h * turnSpeed;
 
 		float angle = rot.x;

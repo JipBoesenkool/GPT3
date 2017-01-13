@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         distance = new Vector3(0, 0, initialDistance);
-        Debug.Log(distance);
+        //Debug.Log(distance);
     }
 	
 	// Update is called once per frame
