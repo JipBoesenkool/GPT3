@@ -53,7 +53,7 @@ public class BoidFlocking : MonoBehaviour
 		Vector3 dir 		= controller.flockDir;
 		Vector3 bound 		= boundPosition ();
 
-		return (center + velocity + dir * 100 + randomize);
+		return (center + velocity + dir * 50 + randomize);
 	}
 
 	private Vector3 boundPosition(){
