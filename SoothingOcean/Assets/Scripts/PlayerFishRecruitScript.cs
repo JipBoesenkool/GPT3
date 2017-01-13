@@ -39,13 +39,13 @@ public class PlayerFishRecruitScript : MonoBehaviour
             {
                 if (!other.GetComponent<Flock>().fleeing) //If the fish is fleeing, can not be collected
                 {
-                    if(bc.CountPoints() >= other.GetComponent<FishScript>().requiredPoints)
+                    if(bc.CountPoints() >= other.GetComponent<PointScript>().fishstickValue)
                     {
                         bc.AddFish(other.gameObject);
                     }
                     else
                     {
-                        other.GetComponent<Flock>().fleeing = true;
+                        other.GetComponent<Flock>().Flee(this.gameObject);
                     }
                     //if (fishSize <= joinSize)
                     //{
