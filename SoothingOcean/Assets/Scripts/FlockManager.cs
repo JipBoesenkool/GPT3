@@ -70,9 +70,7 @@ public class FlockManager : MonoBehaviour {
 	void Update () {
 		if(isActive){
 			//check if it should be active
-			Debug.Log (Vector3.Distance(fSpawner.player.transform.position, transform.position).ToString());
 			if(Vector3.Distance(fSpawner.player.transform.position, transform.position) > fSpawner.maxRange){
-
 				Deactivate ();
 				return;
 			}

@@ -18,6 +18,7 @@ public class FishSpawner : MonoBehaviour
 	public int flockManagersAmount;
 
 	private int layer = 1;				// Checkt in welke layer de speler zwemt.
+	public float minRange = 30;			// Fog field of view
 	public float maxRange = 120;		// Range tussen de speler en de maximale spawn afstand.
 
 	void Start ()
@@ -76,24 +77,24 @@ public class FishSpawner : MonoBehaviour
 			size 	= 2f;
 		}
 
-		// loopt totdat er een positie is gevonden dat niet achter de map zit.
-		Vector3 randomPos = getRandomPosition (playerPos, maxRange);
+		// Get random position
+		Vector3 randomPos = GetRandomPositionInRange(playerPos, minRange, maxRange);
+
+		//get Y height
 		RaycastHit hit;
 		Ray ray = new Ray(new Vector3(randomPos.x,499f,randomPos.z), Vector3.down);
 		if (Physics.Raycast(ray, out hit, 500f)) {
 			randomPos.y = hit.point.y + 20f;
 		}
 
-		// Enemy spawnen.
+		// set fish tank.
 		fm.Spawn(fishPrefab, amount, size, points, randomPos);
 	}
 
-	Vector3 getRandomPosition(Vector3 pos, float maxRange){
-		float randomX = Random.Range (pos.x - maxRange, pos.x + maxRange);
-		float randomY = Random.Range (pos.y - maxRange, pos.y + maxRange);
-		float randomZ = Random.Range (pos.z - maxRange, pos.z + maxRange);
-
-		Vector3 randomPos = new Vector3 ( randomX, randomY, randomZ );
-		return randomPos;
+	Vector3 GetRandomPositionInRange(Vector3 playerPos ,float minRange, float maxRange){
+		float magnitude = maxRange - minRange;
+		Vector3 minDistance = new Vector3 (minRange,minRange,minRange);
+		Vector3 randomPos = (Random.insideUnitSphere * magnitude) + minDistance;
+		return (randomPos + playerPos);
 	}
 }
