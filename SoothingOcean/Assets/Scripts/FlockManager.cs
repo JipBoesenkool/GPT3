@@ -7,6 +7,10 @@ public class FlockManager : MonoBehaviour {
 	private Color32 _red 		= new Color32(160,22,22, 128);
 
 	public FishSpawner fSpawner;
+	//static demo
+	public SpawnData demoSpawnData;
+	public bool 	 demo;
+
 	public GameObject debugPoint;
 	public Vector3 tankSize;
 
@@ -26,6 +30,10 @@ public class FlockManager : MonoBehaviour {
 
 		//goalPos
 		goalPos = randomPos ();
+
+		if(demo){
+			Spawn (demoSpawnData, transform.position);
+		}
 	}
 
 	public void Spawn( SpawnData sd, Vector3 spawnerPos ){
@@ -66,7 +74,7 @@ public class FlockManager : MonoBehaviour {
 	void Update () {
 		if(isActive){
 			//check if it should be active
-			if(Vector3.Distance(fSpawner.player.transform.position, transform.position) > fSpawner.GetMaxRange()){
+			if(!demo && Vector3.Distance(fSpawner.player.transform.position, transform.position) > fSpawner.GetMaxRange()){
 				Deactivate ();
 				return;
 			}

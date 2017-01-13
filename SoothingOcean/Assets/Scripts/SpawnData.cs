@@ -9,7 +9,7 @@ public class SpawnData {
 	[Range(0,20)]
 	public int fishAmount;
 	public int pointsPerFish;
-	[Range(0,2.5f)]
+	[Range(1f,2.5f)]
 	public float fishSize;
 	public GameObject fishPrefab;
 
