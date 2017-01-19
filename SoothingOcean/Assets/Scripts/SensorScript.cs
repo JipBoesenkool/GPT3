@@ -45,8 +45,8 @@ public class SensorScript : MonoBehaviour
 		//get avarage of buffer
 		double avg = GetAvarage ();
 
-		//debug text
-		text.text = "Siemens: " + s + " - Average: " + avg;
+        //debug 
+		text.text = "Siem: " + s.ToString().Substring(0,s.ToString().IndexOf(".") + 2) + " - Avg: " + avg.ToString().Substring(0,avg.ToString().IndexOf(".") + 2);
 
 		//pass value to spawnmanager
 		fs.spawnMultiplier = (float)avg;
