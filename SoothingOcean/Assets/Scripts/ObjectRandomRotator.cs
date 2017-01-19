@@ -8,6 +8,9 @@ public class ObjectRandomRotator : MonoBehaviour {
 
     private GameObject[] objectsToRotate;
 
+    public bool tipOver;
+    public int deviation;
+
     // Use this for initialization
     void Start()
     {
@@ -15,7 +18,11 @@ public class ObjectRandomRotator : MonoBehaviour {
 
         foreach (GameObject objectToRotate in objectsToRotate)
         {
-            objectToRotate.transform.Rotate(0f, Random.Range(0, 360), 0f);//give random rotation between 0 and 360 degrees on the y axis
+            if (tipOver)
+            {
+                objectToRotate.transform.Rotate(Random.Range(-deviation, deviation+1), 0f, Random.Range(-deviation, deviation+1));
+            }
+            objectToRotate.transform.Rotate(0f, Random.Range(0, 361), 0f);//give random rotation between 0 and 360 degrees on the y axis
         }
     }
 }
