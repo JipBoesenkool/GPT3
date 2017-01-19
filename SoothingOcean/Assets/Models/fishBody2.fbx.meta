@@ -28,7 +28,7 @@ ModelImporter:
     400018: //RootNode
     400020: Lamp
     4300000: Cube
-    7400000: Armature|ArmatureAction
+    7400000: Basic
     9500000: //RootNode
     11100000: //RootNode
     13700000: Cube
@@ -54,7 +54,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|ArmatureAction
+      name: Basic
       takeName: Armature|ArmatureAction
       firstFrame: 0
       lastFrame: 77
