@@ -8,20 +8,15 @@ using UnityEngine.UI;
 public class SensorScript : MonoBehaviour
 {
 	public Text text;
-	public int averageLength = 60;
-
-	double startValue = 0.0;
+	public int bufferLength = 60;
+	public int index = -59;
 	double[] averageSiemens;
-	double avg;
-	double lastAvg = 0;
-	int count;
 
 	public FishSpawner fs;
 
 	void Start()
 	{
-		averageSiemens = new double[averageLength];
-		count = -averageLength;
+		averageSiemens = new double[bufferLength];
 
 		eSenseFramework.StartMeasurement("", true);
 		eSenseFramework.OnuMhoChanged += UpdateSiemens;
@@ -31,43 +26,48 @@ public class SensorScript : MonoBehaviour
 
 	void UpdateSiemens(double s)
 	{
-		if (startValue == 0.0)
-		{
-			startValue = s;
+		//first fill the array
+		if (index < 0) {
+			averageSiemens [index + 59] = s;
+			index++;
+			return;
 		}
 
-		if (count >= 0)
-		{
-			averageSiemens[count] = s;
-			avg = 0;
-
-			for (int i = 0; i < averageSiemens.Length; i++)
-			{
-				avg += averageSiemens[i];
-			}
-			text.text = "Siemens: " + s + " - Average: " + avg;
-			avg /= averageLength;
+		//check if array should loop
+		if (index >= 60) {
+			index = 0;
 		}
 
-		if (count == averageLength - 1)
-		{
-			count = 0;
+		//add to buffer
+		averageSiemens[index] = s;
+		index++;
 
-			fs.spawnMultiplier = (float)avg;
+		//get avarage of buffer
+		double avg = GetAvarage ();
 
-			lastAvg = avg;
-		}
-		else
-		{
-			count++;
-		}
+		//debug text
+		text.text = "Siemens: " + s + " - Average: " + avg;
+
+		//pass value to spawnmanager
+		fs.spawnMultiplier = (float)avg;
 	}
 
 	void Stop()
 	{
 		eSenseFramework.StopMeasurement();
-		startValue = 0.0;
-		count = 0;
 		averageSiemens = new double[60];
+		index = -59;
+	}
+
+	private double GetAvarage(){
+		double avg = 0;
+
+		for (int i = 0; i < bufferLength; i++)
+		{
+			avg += averageSiemens[i];
+		}
+		avg /= bufferLength;
+
+		return avg;
 	}
 }
