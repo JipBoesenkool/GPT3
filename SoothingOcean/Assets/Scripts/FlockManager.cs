@@ -42,7 +42,7 @@ public class FlockManager : MonoBehaviour {
 
 		//spawn fishes
 		float multiplier = fSpawner.spawnMultiplier;
-		int count = Mathf.RoundToInt (sd.fishAmount);// * multiplier);
+		int count = Mathf.RoundToInt (sd.fishAmount * multiplier);
 		for(int i = 0; i < count; i++){
 			Vector3 fishPos = randomPos ();
 			GameObject fish = (GameObject)Instantiate (
