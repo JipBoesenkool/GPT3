@@ -41,7 +41,9 @@ public class FlockManager : MonoBehaviour {
 		this.transform.position = spawnerPos;
 
 		//spawn fishes
-		for(int i = 0; i < sd.fishAmount; i++){
+		float multiplier = fSpawner.spawnMultiplier;
+		int count = Mathf.RoundToInt(sd.fishAmount * multiplier);
+		for(int i = 0; i < count; i++){
 			Vector3 fishPos = randomPos ();
 			GameObject fish = (GameObject)Instantiate (
 				sd.fishPrefab,
