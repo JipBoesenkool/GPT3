@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4000013150887210}
   - component: {fileID: 33000012532805110}
   - component: {fileID: 23000013389487560}
+  - component: {fileID: 64251894191229818}
   m_Layer: 0
   m_Name: stone06
   m_TagString: Untagged
@@ -78,4 +79,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012236178170}
+  m_Mesh: {fileID: 4300000, guid: 2e262dac35a353247839292320a9d2ab, type: 3}
+--- !u!64 &64251894191229818
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012236178170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2e262dac35a353247839292320a9d2ab, type: 3}

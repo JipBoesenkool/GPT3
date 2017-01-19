@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 474398}
   - component: {fileID: 3311818}
   - component: {fileID: 2352268}
+  - component: {fileID: 64996632352461892}
   m_Layer: 0
   m_Name: sea-grass01
   m_TagString: Untagged
@@ -79,3 +80,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119496}
   m_IsPrefabParent: 1
+--- !u!64 &64996632352461892
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119496}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: ded7670d141dd0e4fa41e7eba5591a9e, type: 3}
