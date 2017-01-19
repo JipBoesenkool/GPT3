@@ -16,6 +16,8 @@ public class FishSpawner : MonoBehaviour
 	public SpawnData[] spawnData;		// spawn data voor iedere spawn layer.
 	public int flockManagersAmount;
 
+	public float spawnMultiplier;
+
 	void Start ()
 	{
 		//init the fish tanks
@@ -31,7 +33,6 @@ public class FishSpawner : MonoBehaviour
 
 			Spawn (fm);
 		}
-
 	}
 
 	// Spawned de betreffende objecten.
