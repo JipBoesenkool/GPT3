@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2075,7 +2075,7 @@ MonoBehaviour:
     fishAmount: 10
     pointsPerFish: 2
     fishSize: 1.5
-    fishPrefab: {fileID: 1465889142874726, guid: b94de66a227e9634db08ed07c5d6291e,
+    fishPrefab: {fileID: 1032727802292840, guid: 5baae3021b3ec44478a477da01689dd5,
       type: 2}
     minRange: 60
     maxRange: 180
@@ -2085,7 +2085,7 @@ MonoBehaviour:
     fishAmount: 5
     pointsPerFish: 3
     fishSize: 2
-    fishPrefab: {fileID: 1465889142874726, guid: b94de66a227e9634db08ed07c5d6291e,
+    fishPrefab: {fileID: 1405036007657138, guid: c491df4d20f09ac4193e5b94612bdfdc,
       type: 2}
     minRange: 60
     maxRange: 240
@@ -2095,7 +2095,7 @@ MonoBehaviour:
     fishAmount: 2
     pointsPerFish: 15
     fishSize: 1
-    fishPrefab: {fileID: 1405036007657138, guid: c491df4d20f09ac4193e5b94612bdfdc,
+    fishPrefab: {fileID: 1511918110388736, guid: 432c11af0ea33f94ba9b73da63740bd6,
       type: 2}
     minRange: 60
     maxRange: 240
