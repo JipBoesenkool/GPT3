@@ -9,14 +9,15 @@ public class SensorScript : MonoBehaviour
 {
 	public Text text;
 	public int bufferLength = 60;
-	public int index = -59;
 	double[] averageSiemens;
+	public int index;
 
 	public FishSpawner fs;
 
 	void Start()
 	{
 		averageSiemens = new double[bufferLength];
+		index = -59;
 
 		eSenseFramework.StartMeasurement("", true);
 		eSenseFramework.OnuMhoChanged += UpdateSiemens;
@@ -49,7 +50,7 @@ public class SensorScript : MonoBehaviour
 		text.text = "Siem: " + s.ToString().Substring(0,s.ToString().IndexOf(".") + 2) + " - Avg: " + avg.ToString().Substring(0,avg.ToString().IndexOf(".") + 2);
 
 		//pass value to spawnmanager
-		fs.spawnMultiplier = (float)avg;
+		fs.SetSensorAverage((float)avg);
 	}
 
 	void Stop()

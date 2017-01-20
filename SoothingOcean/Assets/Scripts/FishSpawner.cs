@@ -16,6 +16,8 @@ public class FishSpawner : MonoBehaviour
 	public SpawnData[] spawnData;		// spawn data voor iedere spawn layer.
 	public int flockManagersAmount;
 
+	public float sensorMin;
+	public float sensorMax;
 	public float spawnMultiplier;
 
 	void Start ()
@@ -85,5 +87,19 @@ public class FishSpawner : MonoBehaviour
 
 	public int GetMaxRange(){
 		return spawnData [spawnDataIndex].maxRange;
+	}
+
+	public void SetSensorAverage(float s){
+		if(s > sensorMax){
+			sensorMax = s;
+		}
+		else if(s < sensorMin){
+			sensorMin = s;
+		}
+
+		float avg = (float)s;
+		avg = (avg - sensorMin) / (sensorMax - sensorMin);
+
+		spawnMultiplier = avg + 1;
 	}
 }

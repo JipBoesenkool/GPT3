@@ -37,11 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-<<<<<<< HEAD
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641222, b: 0.57481694, a: 1}
-=======
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
->>>>>>> d143c5e7ebbf84c4f1daf16a8902e34173b8dad3
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -375,7 +371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!183 &138705607
 Cloth:
   m_ObjectHideFlags: 0
@@ -706,48 +702,6 @@ Transform:
   m_Father: {fileID: 669438296}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &145687641
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4340546722952978, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.0001366362
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340546722952978, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.35852847
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340546722952978, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340546722952978, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340546722952978, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340546722952978, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340546722952978, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340546722952978, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 432c11af0ea33f94ba9b73da63740bd6, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &230646900 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1851255642531222, guid: b94fb3bd4599e0548881653d5ab249aa,
@@ -2148,6 +2102,8 @@ MonoBehaviour:
     colors:
     - {r: 1, g: 0, b: 0.6000004, a: 0}
   flockManagersAmount: 10
+  sensorMin: 0
+  sensorMax: 0
   spawnMultiplier: 0
 --- !u!4 &892576290
 Transform:
@@ -2414,69 +2370,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
---- !u!114 &892576289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 892576288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03dfed756a4a10b4d9e13242cb8b8643, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1801201700}
-  spawnDataIndex: 0
-  flockManPrefab: {fileID: 1605826389831040, guid: fb6154d215f75407ea5b7d3df49463c1,
-    type: 2}
-  spawnData:
-  - layer: 1
-    fishAmount: 10
-    pointsPerFish: 1
-    fishSize: 1
-    fishPrefab: {fileID: 1465889142874726, guid: b94de66a227e9634db08ed07c5d6291e,
-      type: 2}
-    minRange: 60
-    maxRange: 120
-    colors:
-    - {r: 0.19999981, g: 0, b: 1, a: 0}
-  - layer: 2
-    fishAmount: 10
-    pointsPerFish: 2
-    fishSize: 1.5
-    fishPrefab: {fileID: 1032727802292840, guid: 5baae3021b3ec44478a477da01689dd5,
-      type: 2}
-    minRange: 60
-    maxRange: 180
-    colors:
-    - {r: 0, g: 0, b: 0, a: 0}
-  - layer: 3
-    fishAmount: 5
-    pointsPerFish: 3
-    fishSize: 2
-    fishPrefab: {fileID: 1405036007657138, guid: c491df4d20f09ac4193e5b94612bdfdc,
-      type: 2}
-    minRange: 60
-    maxRange: 240
-    colors:
-    - {r: 0.9862069, g: 1, b: 0, a: 0}
-  - layer: 4
-    fishAmount: 2
-    pointsPerFish: 15
-    fishSize: 1
-    fishPrefab: {fileID: 1511918110388736, guid: 432c11af0ea33f94ba9b73da63740bd6,
-      type: 2}
-    minRange: 60
-    maxRange: 240
-    colors:
-    - {r: 1, g: 0, b: 0.6000004, a: 0}
-  flockManagersAmount: 10
-  spawnMultiplier: 0
---- !u!4 &892576290
-=======
 --- !u!4 &1155807942
->>>>>>> d143c5e7ebbf84c4f1daf16a8902e34173b8dad3
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2598,14 +2492,6 @@ Light:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1259601428}
   m_Enabled: 1
-<<<<<<< HEAD
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a54620f00c4dfcd4684c2527bf9fec4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!119 &925408484
-Projector:
-=======
   serializedVersion: 7
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
@@ -2635,7 +2521,6 @@ Projector:
   m_ShadowAngle: 0
 --- !u!4 &1259601430
 Transform:
->>>>>>> d143c5e7ebbf84c4f1daf16a8902e34173b8dad3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
