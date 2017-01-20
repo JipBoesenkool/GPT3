@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 111954465461734878}
   - component: {fileID: 114192312004612454}
   - component: {fileID: 114268831154315136}
+  - component: {fileID: 114558042120235210}
   m_Layer: 0
   m_Name: FockFishWeirdMouth
   m_TagString: Untagged
@@ -389,6 +390,18 @@ MonoBehaviour:
   fleeSpeedMod: 2
   objToAvoid: {fileID: 0}
   avoidFleeDist: 5
+--- !u!114 &114558042120235210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032727802292840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f5749476b91d147a4d226fadcef4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 111954465461734878}
 --- !u!114 &114733079532420752
 MonoBehaviour:
   m_ObjectHideFlags: 1

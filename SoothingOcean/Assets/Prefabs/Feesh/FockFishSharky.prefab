@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 64089193378040928}
   - component: {fileID: 114978382700284796}
   - component: {fileID: 114497673182643544}
+  - component: {fileID: 114872906569434834}
   m_Layer: 0
   m_Name: FockFishSharky
   m_TagString: Fish
@@ -421,6 +422,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 0
   requiredPoints: 0
+--- !u!114 &114872906569434834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405036007657138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f5749476b91d147a4d226fadcef4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 111933272738536330}
 --- !u!114 &114978382700284796
 MonoBehaviour:
   m_ObjectHideFlags: 1
