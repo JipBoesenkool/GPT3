@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerFishRecruitScript : MonoBehaviour
 {
 	public BoidController bc;
+
+    public AudioClip joinSound;
+    public AudioClip fleeSound;
+    public AudioMixerGroup audioOuput;
 
     //public float numberOfSizeNeededToCollectBigger;
 
@@ -42,10 +47,26 @@ public class PlayerFishRecruitScript : MonoBehaviour
                     if(bc.CountPoints() >= other.GetComponent<PointScript>().fishstickValue)
                     {
                         bc.AddFish(other.gameObject);
+
+                        AudioSource source = gameObject.AddComponent<AudioSource>();
+                        source.clip = joinSound;
+                        source.outputAudioMixerGroup = audioOuput;
+                        source.spatialBlend = 1;
+                        source.Play();
+
+                        Destroy(source, source.clip.length - source.time);
                     }
                     else
                     {
                         other.GetComponent<Flock>().Flee(this.gameObject);
+
+                        AudioSource source = gameObject.AddComponent<AudioSource>();
+                        source.clip = fleeSound;
+                        source.outputAudioMixerGroup = audioOuput;
+                        source.spatialBlend = 1;
+                        source.Play();
+
+                        Destroy(source, source.clip.length - source.time);
                     }
                     //if (fishSize <= joinSize)
                     //{
