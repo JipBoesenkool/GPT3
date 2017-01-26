@@ -8,20 +8,26 @@ using UnityEngine.UI;
 public class SensorScript : MonoBehaviour
 {
 	public Text text;
-	public int bufferLength = 60;
+	public int bufferLength = 20;
 	double[] averageSiemens;
 	public int index;
+	public bool sensorActivated;
 
 	public FishSpawner fs;
 
 	void Start()
 	{
+		if(!sensorActivated){
+			return;
+		}
+
+		text.enabled = true;
+
 		averageSiemens = new double[bufferLength];
 		index = -59;
 
 		eSenseFramework.StartMeasurement("", true);
 		eSenseFramework.OnuMhoChanged += UpdateSiemens;
-		//eSenseFramework.OnPossibleDisconnectDetected += Stop;
 
 	}
 
@@ -44,13 +50,13 @@ public class SensorScript : MonoBehaviour
 		index++;
 
 		//get avarage of buffer
-		double avg = GetAvarage ();
+		float avg = GetAvarage ();
 
         //debug 
-		text.text = "Siem: " + s.ToString().Substring(0,s.ToString().IndexOf(".") + 2) + " - Avg: " + avg.ToString().Substring(0,avg.ToString().IndexOf(".") + 2);
+		text.text = "Avg: " + avg.ToString().Substring(0,avg.ToString().IndexOf(".") + 2);
 
 		//pass value to spawnmanager
-		fs.SetSensorAverage((float)avg);
+		fs.SetSensorAverage(avg);
 	}
 
 	void Stop()
@@ -60,12 +66,12 @@ public class SensorScript : MonoBehaviour
 		index = -59;
 	}
 
-	private double GetAvarage(){
-		double avg = 0;
+	private float GetAvarage(){
+		float avg = 0;
 
 		for (int i = 0; i < bufferLength; i++)
 		{
-			avg += averageSiemens[i];
+			avg += (float)averageSiemens [i];
 		}
 		avg /= bufferLength;
 

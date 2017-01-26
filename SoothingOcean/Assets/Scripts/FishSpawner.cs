@@ -16,12 +16,16 @@ public class FishSpawner : MonoBehaviour
 	public SpawnData[] spawnData;		// spawn data voor iedere spawn layer.
 	public int flockManagersAmount;
 
-	public float sensorMin;
-	public float sensorMax;
-	public float spawnMultiplier;
+	public float sensorMin = float.MaxValue;
+	public float sensorMax = float.MinValue;
+	public float spawnMultiplier = 1.0f;
 
 	void Start ()
 	{
+		sensorMin = float.MaxValue;
+		sensorMax = float.MinValue;
+		spawnMultiplier = 1.0f;
+
 		//init the fish tanks
 		for(int i = 0; i < flockManagersAmount; i++){
 			FlockManager fm = Instantiate (
@@ -44,7 +48,7 @@ public class FishSpawner : MonoBehaviour
 		Vector3 playerPos = player.transform.position;
 
 		//check in welke layer de speler zwemt.
-		if(playerPos.y > 399){
+		if(playerPos.y > 433){
 			spawnDataIndex = 0;
 
 		}else if(playerPos.y > 299){
@@ -66,8 +70,8 @@ public class FishSpawner : MonoBehaviour
 
 		//get Y height
 		RaycastHit hit;
-		Ray ray = new Ray(new Vector3(randomPos.x,499f,randomPos.z), Vector3.down);
-		if (Physics.Raycast(ray, out hit, 500f)) {
+		Ray ray = new Ray(new Vector3(randomPos.x,410f,randomPos.z), Vector3.down);
+		if (Physics.Raycast(ray, out hit, 420f)) {
 			randomPos.y = hit.point.y + 20f;
 		}
 
@@ -96,9 +100,8 @@ public class FishSpawner : MonoBehaviour
 		else if(s < sensorMin){
 			sensorMin = s;
 		}
-
-		float avg = (float)s;
-		avg = (avg - sensorMin) / (sensorMax - sensorMin);
+			
+		float avg = (s - sensorMin) / (sensorMax - sensorMin);
 
 		spawnMultiplier = avg + 1;
 	}

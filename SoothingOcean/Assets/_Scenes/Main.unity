@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5, y: -40}
+  m_AnchoredPosition: {x: 5, y: -60}
   m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &25894117
@@ -202,6 +202,7 @@ MonoBehaviour:
   text: {fileID: 2028187908}
   bufferLength: 60
   index: -59
+  sensorActivated: 0
   fs: {fileID: 892576289}
 --- !u!1001 &34749154
 Prefab:
@@ -309,11 +310,41 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 47ce41b2a610d4a44876f1c393105e33,
+      objectReference: {fileID: 21300000, guid: 79d494a02626343a4b113ebc7131fd1e,
         type: 3}
     - target: {fileID: 4971650444436104, guid: f6bcc19db9eb8449e8dc4628061b04db, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224599112207181628, guid: f6bcc19db9eb8449e8dc4628061b04db,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 224599112207181628, guid: f6bcc19db9eb8449e8dc4628061b04db,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 224759260508152748, guid: f6bcc19db9eb8449e8dc4628061b04db,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 224836911521515486, guid: f6bcc19db9eb8449e8dc4628061b04db,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114495694796705626, guid: f6bcc19db9eb8449e8dc4628061b04db,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 114495694796705626, guid: f6bcc19db9eb8449e8dc4628061b04db,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6bcc19db9eb8449e8dc4628061b04db, type: 2}
@@ -345,10 +376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d1257018172415f9be35dee8c6846b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 2028187908}
   bufferLength: 60
   index: -59
-  fs: {fileID: 0}
+  sensorActivated: 0
+  fs: {fileID: 892576289}
 --- !u!4 &129735631 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012007469876, guid: 35f4a6c98ccafa84899f874db91e1a5f,
@@ -2186,7 +2218,7 @@ MonoBehaviour:
   flockManagersAmount: 10
   sensorMin: 0
   sensorMax: 0
-  spawnMultiplier: 0
+  spawnMultiplier: 1
 --- !u!4 &892576290
 Transform:
   m_ObjectHideFlags: 0
@@ -2229,10 +2261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54620f00c4dfcd4684c2527bf9fec4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDeviationX: 0
-  maxDeviationZ: 0
-  speedX: 0
-  speedZ: 0
 --- !u!119 &925408484
 Projector:
   m_ObjectHideFlags: 0
@@ -3377,7 +3405,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1801201700}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 250, y: 150, z: 250}
+  m_LocalPosition: {x: 1000, y: 420, z: 700}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1274561293}
@@ -3646,7 +3674,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2028187906}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3672,7 +3700,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 'Buffering
+
+'
 --- !u!222 &2028187909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3689,15 +3719,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4543466005039748, guid: b94fb3bd4599e0548881653d5ab249aa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 250
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4543466005039748, guid: b94fb3bd4599e0548881653d5ab249aa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 150
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 4543466005039748, guid: b94fb3bd4599e0548881653d5ab249aa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 250
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 4543466005039748, guid: b94fb3bd4599e0548881653d5ab249aa, type: 2}
       propertyPath: m_LocalRotation.x
