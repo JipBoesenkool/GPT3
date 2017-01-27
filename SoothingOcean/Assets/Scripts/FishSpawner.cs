@@ -48,17 +48,16 @@ public class FishSpawner : MonoBehaviour
 		Vector3 playerPos = player.transform.position;
 
 		//check in welke layer de speler zwemt.
-		if(playerPos.y > 433){
-			spawnDataIndex = 0;
-
-		}else if(playerPos.y > 299){
-			spawnDataIndex = 1;
-
-		}else if(playerPos.y > 199){
-			spawnDataIndex = 2;
-
-		}else if(playerPos.y > 99){
+		if(playerPos.y > 430){			//flying fish!!!
+			return;
+		}else if(playerPos.y < 160){	//layer 3
 			spawnDataIndex = 3;
+		}else if(playerPos.y < 250){	//layer 2
+			spawnDataIndex = 2;
+		}else if(playerPos.y < 340){	//layer 1
+			spawnDataIndex = 1;
+		}else if(playerPos.y < 430){	//layer 0
+			spawnDataIndex = 0;
 		}
 
 		// Get random position

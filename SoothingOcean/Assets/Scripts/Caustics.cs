@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Caustics : MonoBehaviour {
 
-    public float maxDeviationX;
-    public float maxDeviationZ;
+    public float maxDeviationX = 500;
+    public float maxDeviationZ = 500;
 
-    public float speedX;
-    public float speedZ;
+    public float speedX = 10;
+    public float speedZ = 20;
 
     private float startX;
     private float startZ;
