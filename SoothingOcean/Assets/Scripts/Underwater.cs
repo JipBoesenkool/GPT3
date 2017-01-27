@@ -52,6 +52,10 @@ public class Underwater : MonoBehaviour {
             
             sunlight.intensity = 0.5f + (0.5f * lightpercentage); // light intensity between 0.3 and 1 depending on depth
         }
+        else
+        {
+            sunlight.intensity = 0.7f;
+        }
     }
 
     /// <summary>

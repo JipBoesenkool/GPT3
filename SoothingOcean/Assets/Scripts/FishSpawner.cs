@@ -72,7 +72,6 @@ public class FishSpawner : MonoBehaviour
 		Ray ray = new Ray(new Vector3(randomPos.x,410f,randomPos.z), Vector3.down);
 		if (Physics.Raycast(ray, out hit, 420f)) {
 			randomPos.y = hit.point.y + 20f;
-			Debug.Log (hit.point.y.ToString());
 		}
 
 		// set fish tank.
