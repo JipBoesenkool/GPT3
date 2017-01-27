@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// these define the flock's behavior
@@ -49,6 +50,11 @@ public class BoidController : MonoBehaviour
 		if(debugFlockCenter != null){
 			debugFlockCenter.transform.position = flockCenter;
 		}
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Menu");
+        }
 
 		InputController ();
 	}
