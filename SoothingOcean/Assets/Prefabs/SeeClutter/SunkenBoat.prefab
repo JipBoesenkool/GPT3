@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4225683507579518}
   - component: {fileID: 33167613202329210}
   - component: {fileID: 23552302700055298}
+  - component: {fileID: 64195892259372934}
   m_Layer: 0
   m_Name: fishing_boat
   m_TagString: Untagged
@@ -141,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437334367491420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 367.04413, y: 201.54626, z: 1152.5442}
+  m_LocalPosition: {x: 357.6, y: 190.2, z: 1214.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4126540060332190}
@@ -279,6 +280,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670996604002732}
   m_Mesh: {fileID: 4300000, guid: 2b853e375cc59094f873c7eea92fd2b5, type: 3}
+--- !u!64 &64195892259372934
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124163200225514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: fbb1810807a93534fbd814fb6b0aa55f, type: 3}
 --- !u!64 &64382409161324248
 MeshCollider:
   m_ObjectHideFlags: 1
